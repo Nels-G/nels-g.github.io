@@ -5,32 +5,28 @@ interface Props {
   title: string;
   org: string;
   period: string;
-  meta?: string[];
-  desc?: string;
-  tools?: string[];
+  meta?: string;
+  details?: string[];
   current?: boolean;
   currentLabel?: string;
 }
 
-const { title, org, period, meta = [], desc, tools = [], current = false, currentLabel } = Astro.props;
+const { title, org, period, meta, details = [], current = false, currentLabel } = Astro.props;
 ---
 
-<li class:list={['timeline-item', { current }]}>
+<li class="timeline-item">
   <div class="timeline-head">
-    <div>
-      <h3 class="timeline-title">{title}</h3>
-      <p class="timeline-org">{org}</p>
-    </div>
-    <div class="timeline-period">
-      {current && currentLabel && <span class="timeline-current">{currentLabel}</span>}
-      <span>{period}</span>
-    </div>
+    <h3 class="timeline-title">{title}</h3>
+    <span class="timeline-period meta">{period}</span>
   </div>
-  {meta.length > 0 && <p class="timeline-meta">{meta.join(' · ')}</p>}
-  {desc && <p class="timeline-desc">{desc}</p>}
-  {tools.length > 0 && (
-    <ul class="tags">
-      {tools.map((tool) => <li>{tool}</li>)}
+  <p class="timeline-org">
+    {org}
+    {meta && <span class="meta"> · {meta}</span>}
+    {current && currentLabel && <span class="status">{currentLabel}</span>}
+  </p>
+  {details.length > 0 && (
+    <ul class="timeline-details">
+      {details.map((d) => <li>{d}</li>)}
     </ul>
   )}
 </li>

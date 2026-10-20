@@ -1,6 +1,6 @@
 # nels-g.github.io
 
-Portfolio de Nelson Galley - Développeur Web & UX/UI Designer.
+Portfolio scientifique de Kossi Nelson Galley - Candidat au Master 1 Informatique.
 Site statique Astro, bilingue (FR sur `/`, EN sur `/en/...`), hébergé sur GitHub Pages : https://nels-g.github.io
 
 ## Développement
@@ -17,8 +17,9 @@ npm run build    # génère dist/
 | --- | --- |
 | Textes de l'interface (FR/EN) | `src/i18n/ui.ts` |
 | Projets | `src/data/projects.ts` (+ images dans `public/projects/`) |
-| Expériences, formations, compétences, certifications | `src/data/journey.ts` |
-| Coordonnées, chiffres du hero | `src/data/profile.ts` |
+| Communications, ateliers, workshops | `src/data/talks.ts` |
+| Formation, expérience, engagements, distinctions, compétences, langues | `src/data/journey.ts` |
+| Coordonnées | `src/data/profile.ts` |
 
 Chaque texte traduisible a la forme `{ fr: '...', en: '...' }`.
 

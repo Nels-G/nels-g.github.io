@@ -1,91 +1,107 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/shared/PageHeader/PageHeader.astro';
-import ProjectCard from '../components/projects/ProjectCard/ProjectCard.astro';
 import { projects } from '../data/projects';
 import { useTranslations, type Lang } from '../i18n/utils';
 
 const lang = (Astro.currentLocale ?? 'fr') as Lang;
 const t = useTranslations(lang);
-
-const filters = [
-  { value: 'all', label: t('projects.filter.all'), count: projects.length },
-  { value: 'web', label: t('projects.category.web'), count: projects.filter((p) => p.category === 'web').length },
-  { value: 'uxui', label: t('projects.category.uxui'), count: projects.filter((p) => p.category === 'uxui').length },
-];
 ---
 
 <BaseLayout title={t('meta.projects')}>
-  <PageHeader badge={t('projects.badge')} title={t('projects.title')} subtitle={t('projects.subtitle')} />
+  <PageHeader badge={t('projects.badge')} title={t('projects.title')} intro={t('projects.intro')} />
 
-  <section class="section projects-section">
-    <div class="container">
-      <div class="filters" role="group" aria-label={t('projects.badge')}>
-        {filters.map((f, i) => (
-          <button type="button" class="filter" data-filter={f.value} aria-pressed={i === 0 ? 'true' : 'false'}>
-            {f.label} <span class="filter-count">{f.count}</span>
-          </button>
-        ))}
-      </div>
-
-      <div class="project-grid">
-        {projects.map((project) => <ProjectCard project={project} />)}
-      </div>
-    </div>
-  </section>
+  <ul class="content projects">
+    {projects.map((p) => (
+      <li class:list={['project', { 'has-image': p.image }]}>
+        {p.image && <img src={p.image} alt={p.title[lang]} class="project-image" loading="lazy" decoding="async" />}
+        <div>
+          <div class="project-head">
+            <h2 class="project-title">{p.title[lang]}</h2>
+            <span class="meta project-period">
+              {p.ongoing && <span class="status">{t('projects.ongoing')}</span>}
+              {p.period[lang]}
+            </span>
+          </div>
+          <p class="project-desc">{p.desc[lang]}</p>
+          <ul class="tags" aria-label={t('projects.technologies')}>
+            {p.technologies.map((tech) => <li>{tech}</li>)}
+          </ul>
+          {p.repo && (
+            <a href={p.repo} class="project-link" target="_blank" rel="noopener noreferrer">
+              {t('projects.code')} (GitHub) ↗
+            </a>
+          )}
+        </div>
+      </li>
+    ))}
+  </ul>
 </BaseLayout>
 
 <style>
-  .projects-section {
-    padding-top: 2.5rem;
+  .projects {
+    list-style: none;
   }
 
-  .filters {
+  .project {
+    padding: 1.75rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .project.has-image {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 1.75rem;
+  }
+
+  .project-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+  }
+
+  .project-head {
     display: flex;
+    justify-content: space-between;
+    align-items: baseline;
     flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+  }
+
+  .project-title {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+
+  .project-period {
+    display: flex;
+    align-items: center;
     gap: 0.5rem;
-    margin-bottom: 2rem;
+    white-space: nowrap;
   }
 
-  .filter {
-    font: 600 0.9rem var(--font-body);
+  .project-desc {
     color: var(--color-text-secondary);
-    background: var(--color-surface);
-    border: 1.5px solid var(--color-border);
-    border-radius: 999px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    margin: 0.5rem 0 0.85rem;
   }
 
-  .filter:hover {
-    border-color: var(--color-text);
-    color: var(--color-text);
+  .project-link {
+    display: inline-block;
+    margin-top: 0.85rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.88rem;
   }
 
-  .filter[aria-pressed='true'] {
-    background: var(--color-ink);
-    border-color: var(--color-ink);
-    color: #fff;
-  }
-
-  .filter-count {
-    opacity: 0.6;
-    margin-left: 0.2rem;
+  @media (max-width: 640px) {
+    .project.has-image {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
   }
 </style>
-
-<script>
-  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter');
-  const cards = document.querySelectorAll<HTMLElement>('.project-card');
-
-  buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const value = btn.dataset.filter;
-      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
-      cards.forEach((card) => {
-        card.hidden = value !== 'all' && card.dataset.category !== value;
-      });
-    });
-  });
-</script>

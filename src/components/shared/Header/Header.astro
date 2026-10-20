@@ -9,6 +9,7 @@ const t = useTranslations(lang);
 const navItems = [
   { key: 'nav.home', href: '/' },
   { key: 'nav.projects', href: '/projects' },
+  { key: 'nav.talks', href: '/talks' },
   { key: 'nav.journey', href: '/journey' },
 ] as const;
 
@@ -23,45 +24,33 @@ function isActive(href: string) {
 ---
 
 <header class="site-header">
-  <div class="container header-inner">
-    <a href={localizePath('/', lang)} class="logo" aria-label="Nelson Galley">
-      <img src="/favicon.svg" alt="" width="34" height="34" />
-      <span>Nelson<span class="logo-dot">.</span></span>
-    </a>
-
-    <nav class="main-nav" aria-label="Navigation">
-      <ul class="nav-list" id="nav-list">
-        {navItems.map((item) => (
-          <li>
-            <a
-              href={localizePath(item.href, lang)}
-              class:list={['nav-link', { active: isActive(item.href) }]}
-            >
-              {t(item.key)}
-            </a>
-          </li>
-        ))}
-        <li>
-          <a href="#contact" class="nav-link">{t('nav.contact')}</a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="header-actions">
-      <div class="lang-switcher" aria-label="Langue / Language">
-        <a href={frPath} data-set-lang="fr" class:list={['lang-option', { current: lang === 'fr' }]} aria-current={lang === 'fr' ? 'true' : undefined}>
-          <span class="flag" set:html={FlagFr} />FR
-        </a>
-        <a href={enPath} data-set-lang="en" class:list={['lang-option', { current: lang === 'en' }]} aria-current={lang === 'en' ? 'true' : undefined}>
-          <span class="flag" set:html={FlagEn} />EN
-        </a>
-      </div>
-
-      <button class="menu-toggle" id="menu-toggle" aria-label={t('nav.menu')} aria-expanded="false" aria-controls="nav-list">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
-      </button>
+  <div class="header-top content">
+    <a href={localizePath('/', lang)} class="site-title">Kossi Nelson Galley</a>
+    <div class="lang-switcher" aria-label="Langue / Language">
+      <a href={frPath} data-set-lang="fr" class:list={['lang-option', { current: lang === 'fr' }]} aria-current={lang === 'fr' ? 'true' : undefined}>
+        <span class="flag" set:html={FlagFr} />FR
+      </a>
+      <a href={enPath} data-set-lang="en" class:list={['lang-option', { current: lang === 'en' }]} aria-current={lang === 'en' ? 'true' : undefined}>
+        <span class="flag" set:html={FlagEn} />EN
+      </a>
     </div>
   </div>
+
+  <nav class="main-nav content" aria-label="Navigation">
+    <button class="menu-toggle" id="menu-toggle" aria-label={t('nav.menu')} aria-expanded="false" aria-controls="nav-list">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
+      <span>{t('nav.menu')}</span>
+    </button>
+    <ul class="nav-list" id="nav-list">
+      {navItems.map((item) => (
+        <li>
+          <a href={localizePath(item.href, lang)} class:list={['nav-link', { active: isActive(item.href) }]}>
+            {t(item.key)}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
 </header>
 
 <script>
@@ -73,11 +62,5 @@ function isActive(href: string) {
       const open = list.classList.toggle('show');
       toggle.setAttribute('aria-expanded', String(open));
     });
-    list.querySelectorAll('a').forEach((a) =>
-      a.addEventListener('click', () => {
-        list.classList.remove('show');
-        toggle.setAttribute('aria-expanded', 'false');
-      })
-    );
   }
 </script>

@@ -1,19 +1,11 @@
-// Coordonnées publiques, reprises de mon-portfolio.
+// Coordonnées publiques, reprises du CV (CV_Nelson_Galley.pdf).
 export const profile = {
-  name: 'Nelson Galley',
-  firstName: 'Nelson',
+  name: 'Kossi Nelson Galley',
+  shortName: 'Nelson Galley',
   email: 'nelsongalley001@gmail.com',
-  whatsapp: 'https://wa.me/22899868331',
+  phone: '+228 92 90 43 19',
+  whatsapp: 'https://wa.me/22892904319',
   github: 'https://github.com/Nels-G',
   linkedin: 'https://www.linkedin.com/in/nelson-galley/',
-  facebook: 'https://www.facebook.com/profile.php?id=100076067002273',
   photo: '/images/nelson.jpg',
-  ogImage: '/images/preview.png',
 };
-
-// Chiffres affichés dans le hero (repris de Hero.jsx)
-export const heroStats = [
-  { value: '3+', key: 'hero.stat1' },
-  { value: '15+', key: 'hero.stat2' },
-  { value: '2', key: 'hero.stat3' },
-] as const;

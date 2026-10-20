@@ -2,28 +2,52 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/shared/PageHeader/PageHeader.astro';
 import TimelineItem from '../components/journey/TimelineItem/TimelineItem.astro';
-import { experiences, education, community, certifications, skills, languages } from '../data/journey';
+import {
+  education,
+  experiences,
+  community,
+  distinctions,
+  skills,
+  languages,
+  interests,
+} from '../data/journey';
 import { useTranslations, type Lang } from '../i18n/utils';
 
 const lang = (Astro.currentLocale ?? 'fr') as Lang;
 const t = useTranslations(lang);
+
+const label = (item: string | { fr: string; en: string }) => (typeof item === 'string' ? item : item[lang]);
 ---
 
 <BaseLayout title={t('meta.journey')}>
-  <PageHeader badge={t('journey.badge')} title={t('journey.title')} subtitle={t('journey.bio')} />
+  <PageHeader badge={t('journey.badge')} title={t('journey.title')} />
 
-  <div class="container journey">
-    <section class="journey-block">
-      <h2 class="journey-heading">{t('journey.experience')}</h2>
+  <div class="content">
+    <section class="block">
+      <h2 class="section-title">{t('journey.education')}</h2>
+      <ol class="timeline">
+        {education.map((e) => (
+          <TimelineItem
+            title={e.degree[lang]}
+            org={e.school}
+            meta={e.location}
+            period={e.period[lang]}
+            details={e.details[lang]}
+          />
+        ))}
+      </ol>
+    </section>
+
+    <section class="block">
+      <h2 class="section-title">{t('journey.experience')}</h2>
       <ol class="timeline">
         {experiences.map((e) => (
           <TimelineItem
             title={e.role[lang]}
-            org={e.company}
+            org={e.org}
+            meta={`${e.contract[lang]} · ${e.location}`}
             period={e.period[lang]}
-            meta={[e.contract?.[lang], e.duration[lang], e.location[lang]].filter((x): x is string => Boolean(x))}
-            desc={e.desc[lang]}
-            tools={e.tools}
+            details={e.details[lang]}
             current={e.current}
             currentLabel={t('journey.current')}
           />
@@ -31,129 +55,132 @@ const t = useTranslations(lang);
       </ol>
     </section>
 
-    <div class="journey-columns">
-      <section class="journey-block">
-        <h2 class="journey-heading">{t('journey.education')}</h2>
-        <ol class="timeline">
-          {education.map((e) => (
-            <TimelineItem title={e.degree[lang]} org={e.school} period={e.period} />
-          ))}
-        </ol>
-      </section>
-
-      <section class="journey-block">
-        <h2 class="journey-heading">{t('journey.languages')}</h2>
-        <ul class="simple-list">
-          {languages.map((l) => (
-            <li><strong>{l.name}</strong><span>{l.level[lang]}</span></li>
-          ))}
-        </ul>
-      </section>
-    </div>
-
-    <section class="journey-block">
-      <h2 class="journey-heading">{t('journey.skills')}</h2>
-      <div class="skills-grid">
-        {skills.map((group) => (
-          <div class="skill-group">
-            <h3>{group.label[lang]}</h3>
-            <ul class="tags">
-              {group.items[lang].map((item) => <li>{item}</li>)}
-            </ul>
-          </div>
+    <section class="block">
+      <h2 class="section-title">{t('journey.community')}</h2>
+      <ol class="timeline">
+        {community.map((c) => (
+          <TimelineItem
+            title={c.role[lang]}
+            org={c.org}
+            period={c.period[lang]}
+            details={c.details[lang]}
+            current={c.current}
+            currentLabel={t('journey.current')}
+          />
         ))}
-      </div>
+      </ol>
     </section>
 
-    <div class="journey-columns">
-      <section class="journey-block">
-        <h2 class="journey-heading">{t('journey.community')}</h2>
-        <ol class="timeline">
-          {community.map((c) => (
-            <TimelineItem title={c.role[lang]} org={c.org} period={c.period[lang]} desc={c.desc[lang]} />
-          ))}
-        </ol>
-      </section>
+    <section class="block">
+      <h2 class="section-title">{t('journey.distinctions')}</h2>
+      <ul class="rows">
+        {distinctions.map((d) => (
+          <li>
+            <span>{d.title[lang]}</span>
+            <span class="meta">{d.org ? `${d.org} · ` : ''}{d.date[lang]}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
 
-      <section class="journey-block">
-        <h2 class="journey-heading">{t('journey.certifications')}</h2>
-        <ul class="simple-list">
-          {certifications.map((c) => (
-            <li>
-              <strong>{c.title[lang]}</strong>
-              <span>{c.org} · {c.date[lang]}</span>
-            </li>
+    <section class="block">
+      <h2 class="section-title">{t('journey.skills')}</h2>
+      <dl class="skills">
+        {skills.map((group) => (
+          <div class="skill-row">
+            <dt>{group.label[lang]}</dt>
+            <dd>
+              <ul class="tags">
+                {group.items.map((item) => <li>{label(item)}</li>)}
+              </ul>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section class="block two-cols">
+      <div>
+        <h2 class="section-title">{t('journey.languages')}</h2>
+        <ul class="plain">
+          {languages.map((l) => (
+            <li>{l.name[lang]}{l.level && <span class="meta"> · {l.level[lang]}</span>}</li>
           ))}
         </ul>
-      </section>
-    </div>
+      </div>
+      <div>
+        <h2 class="section-title">{t('journey.interests')}</h2>
+        <p>{interests[lang].join(', ')}</p>
+      </div>
+    </section>
   </div>
 </BaseLayout>
 
 <style>
-  .journey {
-    padding-top: 3rem;
-    padding-bottom: 5rem;
+  .block {
+    padding: 2rem 0;
+    border-top: 1px solid var(--color-border);
   }
 
-  .journey-block {
-    padding: 2.5rem 0;
+  .block:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .rows {
+    list-style: none;
+  }
+
+  .rows li {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.15rem 1.5rem;
+    padding: 0.6rem 0;
     border-bottom: 1px solid var(--color-border);
   }
 
-  .journey-columns {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 0 3.5rem;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .journey-columns .journey-block {
+  .rows li:last-child {
     border-bottom: none;
   }
 
-  .journey-heading {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    margin-bottom: 1.75rem;
-  }
-
-  .simple-list {
-    list-style: none;
+  .skill-row {
     display: grid;
-    gap: 0.75rem;
+    grid-template-columns: 210px 1fr;
+    gap: 1rem;
+    padding: 0.6rem 0;
   }
 
-  .simple-list li {
-    display: flex;
-    flex-direction: column;
-    padding: 0.9rem 1.1rem;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    background: var(--color-surface);
-  }
-
-  .simple-list span {
+  .skill-row dt {
+    font-family: var(--font-sans);
+    font-weight: 600;
     font-size: 0.9rem;
-    color: var(--color-text-secondary);
+    padding-top: 0.1rem;
   }
 
-  .skills-grid {
+  .two-cols {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 
-  .skill-group h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
+  .plain {
+    list-style: none;
   }
 
-  @media (max-width: 860px) {
-    .journey-columns,
-    .skills-grid {
+  .plain li + li {
+    margin-top: 0.3rem;
+  }
+
+  @media (max-width: 640px) {
+    .skill-row,
+    .two-cols {
       grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+
+    .two-cols {
+      gap: 2rem;
     }
   }
 </style>
