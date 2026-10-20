@@ -1,0 +1,36 @@
+---
+import './TimelineItem.css';
+
+interface Props {
+  title: string;
+  org: string;
+  period: string;
+  meta?: string[];
+  desc?: string;
+  tools?: string[];
+  current?: boolean;
+  currentLabel?: string;
+}
+
+const { title, org, period, meta = [], desc, tools = [], current = false, currentLabel } = Astro.props;
+---
+
+<li class:list={['timeline-item', { current }]}>
+  <div class="timeline-head">
+    <div>
+      <h3 class="timeline-title">{title}</h3>
+      <p class="timeline-org">{org}</p>
+    </div>
+    <div class="timeline-period">
+      {current && currentLabel && <span class="timeline-current">{currentLabel}</span>}
+      <span>{period}</span>
+    </div>
+  </div>
+  {meta.length > 0 && <p class="timeline-meta">{meta.join(' · ')}</p>}
+  {desc && <p class="timeline-desc">{desc}</p>}
+  {tools.length > 0 && (
+    <ul class="tags">
+      {tools.map((tool) => <li>{tool}</li>)}
+    </ul>
+  )}
+</li>

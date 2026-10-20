@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/shared/PageHeader/PageHeader.astro';
+import ProjectCard from '../components/projects/ProjectCard/ProjectCard.astro';
+import { projects } from '../data/projects';
+import { useTranslations, type Lang } from '../i18n/utils';
+
+const lang = (Astro.currentLocale ?? 'fr') as Lang;
+const t = useTranslations(lang);
+
+const filters = [
+  { value: 'all', label: t('projects.filter.all'), count: projects.length },
+  { value: 'web', label: t('projects.category.web'), count: projects.filter((p) => p.category === 'web').length },
+  { value: 'uxui', label: t('projects.category.uxui'), count: projects.filter((p) => p.category === 'uxui').length },
+];
+---
+
+<BaseLayout title={t('meta.projects')}>
+  <PageHeader badge={t('projects.badge')} title={t('projects.title')} subtitle={t('projects.subtitle')} />
+
+  <section class="section projects-section">
+    <div class="container">
+      <div class="filters" role="group" aria-label={t('projects.badge')}>
+        {filters.map((f, i) => (
+          <button type="button" class="filter" data-filter={f.value} aria-pressed={i === 0 ? 'true' : 'false'}>
+            {f.label} <span class="filter-count">{f.count}</span>
+          </button>
+        ))}
+      </div>
+
+      <div class="project-grid">
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .projects-section {
+    padding-top: 2.5rem;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .filter {
+    font: 600 0.9rem var(--font-body);
+    color: var(--color-text-secondary);
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter:hover {
+    border-color: var(--color-text);
+    color: var(--color-text);
+  }
+
+  .filter[aria-pressed='true'] {
+    background: var(--color-ink);
+    border-color: var(--color-ink);
+    color: #fff;
+  }
+
+  .filter-count {
+    opacity: 0.6;
+    margin-left: 0.2rem;
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter');
+  const cards = document.querySelectorAll<HTMLElement>('.project-card');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const value = btn.dataset.filter;
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      cards.forEach((card) => {
+        card.hidden = value !== 'all' && card.dataset.category !== value;
+      });
+    });
+  });
+</script>

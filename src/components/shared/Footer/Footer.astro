@@ -1,0 +1,47 @@
+---
+import { useTranslations, type Lang } from '../../../i18n/utils';
+import { profile } from '../../../data/profile';
+import './Footer.css';
+
+const lang = (Astro.currentLocale ?? 'fr') as Lang;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+
+const links = [
+  { label: 'GitHub', href: profile.github },
+  { label: 'LinkedIn', href: profile.linkedin },
+  { label: 'Facebook', href: profile.facebook },
+  { label: 'WhatsApp', href: profile.whatsapp },
+];
+---
+
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div class="footer-cta">
+      <span class="badge">{t('cta.badge')}</span>
+      <h2 class="footer-title">{t('cta.title')}</h2>
+      <p class="footer-subtitle">{t('cta.subtitle')}</p>
+      <div class="footer-actions">
+        <a href={profile.whatsapp} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          {t('cta.whatsapp')}
+        </a>
+        <a href={`mailto:${profile.email}`} class="btn btn-light">{t('cta.email')}</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        <p class="footer-name">Nelson Galley</p>
+        <p class="footer-tagline">{t('footer.tagline')}</p>
+      </div>
+      <ul class="footer-links">
+        {links.map((l) => (
+          <li><a href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a></li>
+        ))}
+        <li><a href={`mailto:${profile.email}`}>{profile.email}</a></li>
+      </ul>
+    </div>
+
+    <p class="footer-legal">© {year} Nelson Galley. {t('footer.rights')} · {t('footer.made')}</p>
+  </div>
+</footer>

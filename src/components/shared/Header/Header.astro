@@ -1,0 +1,83 @@
+---
+import { useTranslations, getAlternatePaths, localizePath, type Lang } from '../../../i18n/utils';
+import { FlagFr, FlagEn } from '../../../i18n/flags';
+import './Header.css';
+
+const lang = (Astro.currentLocale ?? 'fr') as Lang;
+const t = useTranslations(lang);
+
+const navItems = [
+  { key: 'nav.home', href: '/' },
+  { key: 'nav.projects', href: '/projects' },
+  { key: 'nav.journey', href: '/journey' },
+] as const;
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const { fr: frPath, en: enPath } = getAlternatePaths(currentPath);
+
+function isActive(href: string) {
+  const target = localizePath(href, lang);
+  if (href === '/') return currentPath === target;
+  return currentPath === target || currentPath.startsWith(`${target}/`);
+}
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href={localizePath('/', lang)} class="logo" aria-label="Nelson Galley">
+      <img src="/favicon.svg" alt="" width="34" height="34" />
+      <span>Nelson<span class="logo-dot">.</span></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navigation">
+      <ul class="nav-list" id="nav-list">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={localizePath(item.href, lang)}
+              class:list={['nav-link', { active: isActive(item.href) }]}
+            >
+              {t(item.key)}
+            </a>
+          </li>
+        ))}
+        <li>
+          <a href="#contact" class="nav-link">{t('nav.contact')}</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-switcher" aria-label="Langue / Language">
+        <a href={frPath} data-set-lang="fr" class:list={['lang-option', { current: lang === 'fr' }]} aria-current={lang === 'fr' ? 'true' : undefined}>
+          <span class="flag" set:html={FlagFr} />FR
+        </a>
+        <a href={enPath} data-set-lang="en" class:list={['lang-option', { current: lang === 'en' }]} aria-current={lang === 'en' ? 'true' : undefined}>
+          <span class="flag" set:html={FlagEn} />EN
+        </a>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label={t('nav.menu')} aria-expanded="false" aria-controls="nav-list">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const list = document.getElementById('nav-list');
+
+  if (toggle && list) {
+    toggle.addEventListener('click', () => {
+      const open = list.classList.toggle('show');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    list.querySelectorAll('a').forEach((a) =>
+      a.addEventListener('click', () => {
+        list.classList.remove('show');
+        toggle.setAttribute('aria-expanded', 'false');
+      })
+    );
+  }
+</script>

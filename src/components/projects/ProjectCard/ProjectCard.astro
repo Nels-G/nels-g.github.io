@@ -1,0 +1,31 @@
+---
+import type { Project } from '../../../data/projects';
+import { useTranslations, localizePath, type Lang } from '../../../i18n/utils';
+import './ProjectCard.css';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const lang = (Astro.currentLocale ?? 'fr') as Lang;
+const t = useTranslations(lang);
+const href = localizePath(`/projects/${project.slug}`, lang);
+---
+
+<article class="project-card" data-category={project.category}>
+  <a href={href} class="project-card-link">
+    <div class="project-card-image">
+      <img src={project.image} alt={project.title[lang]} loading="lazy" decoding="async" />
+    </div>
+    <div class="project-card-body">
+      <span class="project-card-category">{t(`projects.category.${project.category}`)}</span>
+      <h3 class="project-card-title">{project.title[lang]}</h3>
+      <p class="project-card-subtitle">{project.subtitle[lang]}</p>
+      <ul class="tags">
+        {project.tools[lang].slice(0, 4).map((tool) => <li>{tool}</li>)}
+      </ul>
+      <span class="project-card-more">{t('projects.details')} →</span>
+    </div>
+  </a>
+</article>

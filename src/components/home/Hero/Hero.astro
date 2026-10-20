@@ -1,0 +1,40 @@
+---
+import { useTranslations, localizePath, type Lang } from '../../../i18n/utils';
+import { profile, heroStats } from '../../../data/profile';
+import './Hero.css';
+
+const lang = (Astro.currentLocale ?? 'fr') as Lang;
+const t = useTranslations(lang);
+---
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <span class="badge"><span class="pulse" aria-hidden="true"></span>{t('hero.badge')}</span>
+      <p class="hero-greeting">{t('hero.greeting')}</p>
+      <h1 class="hero-title">
+        {t('hero.title1')}<br />
+        <span class="hero-title-accent">{t('hero.title2')}</span>
+      </h1>
+      <p class="hero-subtitle">{t('hero.subtitle')}</p>
+
+      <div class="hero-actions">
+        <a href={localizePath('/projects', lang)} class="btn btn-primary">{t('hero.cta1')} →</a>
+        <a href={localizePath('/journey', lang)} class="btn btn-outline">{t('hero.cta2')}</a>
+      </div>
+
+      <dl class="hero-stats">
+        {heroStats.map((s) => (
+          <div class="hero-stat">
+            <dt>{t(s.key)}</dt>
+            <dd>{s.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+
+    <div class="hero-photo">
+      <img src={profile.photo} alt="Nelson Galley" width="440" height="440" fetchpriority="high" />
+    </div>
+  </div>
+</section>

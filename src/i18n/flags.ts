@@ -1,0 +1,3 @@
+export const FlagFr = `<svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="6" height="13" fill="#002395"/><rect x="6" width="6" height="13" fill="#FFFFFF"/><rect x="12" width="6" height="13" fill="#ED2939"/></svg>`;
+
+export const FlagEn = `<svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="18" height="13" fill="#012169"/><path d="M0 0L18 13M18 0L0 13" stroke="#FFFFFF" stroke-width="2"/><path d="M0 0L18 13M18 0L0 13" stroke="#C8102E" stroke-width="1"/><path d="M9 0V13M0 6.5H18" stroke="#FFFFFF" stroke-width="3"/><path d="M9 0V13M0 6.5H18" stroke="#C8102E" stroke-width="2"/></svg>`;

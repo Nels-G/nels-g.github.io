@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/home/Hero/Hero.astro';
+import Services from '../components/home/Services/Services.astro';
+import ProjectCard from '../components/projects/ProjectCard/ProjectCard.astro';
+import { projects } from '../data/projects';
+import { useTranslations, localizePath, type Lang } from '../i18n/utils';
+
+const lang = (Astro.currentLocale ?? 'fr') as Lang;
+const t = useTranslations(lang);
+
+// 3 projets web + 3 projets UX/UI mis en avant
+const featured = [
+  ...projects.filter((p) => p.category === 'web' && p.featured).slice(0, 3),
+  ...projects.filter((p) => p.category === 'uxui' && p.featured).slice(0, 3),
+];
+---
+
+<BaseLayout>
+  <Hero />
+  <Services />
+
+  <section class="section">
+    <div class="container">
+      <div class="home-projects-head">
+        <div>
+          <span class="badge">{t('projects.badge')}</span>
+          <h2 class="section-title">{t('projects.title')}</h2>
+          <p class="section-subtitle">{t('projects.subtitle')}</p>
+        </div>
+        <a href={localizePath('/projects', lang)} class="btn btn-outline">{t('projects.all')} →</a>
+      </div>
+
+      <div class="project-grid">
+        {featured.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .home-projects-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+</style>
