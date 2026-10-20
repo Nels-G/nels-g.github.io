@@ -1,221 +1,128 @@
-// Parcours, repris du CV (CV_Nelson_Galley.pdf). Versions anglaises = traductions du CV.
+export type JourneyCategory = 'education' | 'experience' | 'volunteer' | 'milestone';
 
-type Localized<T> = { fr: T; en: T };
-
-export interface Education {
-  degree: Localized<string>;
-  school: string;
-  location: string;
-  period: Localized<string>;
-  details: Localized<string[]>;
+export interface Localized {
+  fr: string;
+  en: string;
 }
 
-export interface Experience {
-  role: Localized<string>;
-  org: string;
-  contract: Localized<string>;
-  location: string;
-  period: Localized<string>;
-  current: boolean;
-  details: Localized<string[]>;
+export interface JourneyEntry {
+  period: Localized;
+  title: Localized;
+  org: Localized;
+  location?: Localized;
+  category: JourneyCategory;
+  description?: Localized;
+  url?: string;
 }
 
-export interface Community {
-  role: Localized<string>;
-  org: string;
-  period: Localized<string>;
-  current: boolean;
-  details: Localized<string[]>;
-}
-
-export interface Distinction {
-  title: Localized<string>;
-  org?: string;
-  date: Localized<string>;
-}
-
-export interface SkillGroup {
-  label: Localized<string>;
-  items: (string | Localized<string>)[];
-}
-
-export const education: Education[] = [
+// Repris du CV (CV_Nelson_Galley.pdf), du plus ancien au plus récent.
+export const journey: JourneyEntry[] = [
   {
-    degree: {
-      fr: 'Licence en Informatique, Réseau et Télécoms - Option Architecture Logicielle',
-      en: "Bachelor's in Computer Science, Networks and Telecommunications - Software Architecture",
+    period: { en: '2022', fr: '2022' },
+    title: { en: 'Scientific Baccalaureate — Series D (Mathematics & Sciences)', fr: 'Baccalauréat Scientifique — Série D (Mathématiques & Sciences)' },
+    org: { en: 'Collège Protestant de Notsè', fr: 'Collège Protestant de Notsè' },
+    location: { en: 'Notsè, Togo', fr: 'Notsè, Togo' },
+    category: 'education',
+  },
+  {
+    period: { en: 'Dec 2022 – 2025', fr: 'Déc. 2022 – 2025' },
+    title: {
+      en: "Bachelor's in Computer Science, Networks and Telecommunications — Software Architecture",
+      fr: 'Licence en Informatique, Réseau et Télécoms — Option Architecture Logicielle',
     },
-    school: 'ESGIS TOGO',
-    location: 'Lomé, Togo',
-    period: { fr: 'Déc. 2022 - 2025', en: 'Dec. 2022 - 2025' },
-    details: {
-      fr: [
-        'Cursus LMD validé intégralement : 180/180 crédits ECTS.',
-        'Domaines clés : algorithmique avancée, programmation C/C++/POO, génie logiciel, modélisation (UML, MERISE), architecture des bases de données (Oracle, SQL Server, NoSQL), sécurité & cryptographie, théorie des graphes.',
-      ],
-      en: [
-        'LMD programme fully completed: 180/180 ECTS credits.',
-        'Key areas: advanced algorithms, C/C++/OOP programming, software engineering, modelling (UML, MERISE), database architecture (Oracle, SQL Server, NoSQL), security & cryptography, graph theory.',
-      ],
+    org: { en: 'ESGIS TOGO', fr: 'ESGIS TOGO' },
+    location: { en: 'Lomé, Togo', fr: 'Lomé, Togo' },
+    category: 'education',
+    description: {
+      en: 'LMD programme fully completed: 180/180 ECTS credits. Key areas: advanced algorithms, C/C++/OOP programming, software engineering, modelling (UML, MERISE), database architecture (Oracle, SQL Server, NoSQL), security & cryptography, graph theory.',
+      fr: 'Cursus LMD validé intégralement : 180/180 crédits ECTS. Domaines clés : algorithmique avancée, programmation C/C++/POO, génie logiciel, modélisation (UML, MERISE), architecture des bases de données (Oracle, SQL Server, NoSQL), sécurité & cryptographie, théorie des graphes.',
     },
   },
   {
-    degree: {
-      fr: 'Baccalauréat Scientifique - Série D (Mathématiques & Sciences)',
-      en: 'Scientific Baccalaureate - Series D (Mathematics & Sciences)',
+    period: { en: 'Jul 2024', fr: 'Juil. 2024' },
+    title: { en: 'Exploratory Data Analysis for Machine Learning', fr: 'Exploratory Data Analysis for Machine Learning' },
+    org: { en: 'IBM', fr: 'IBM' },
+    category: 'milestone',
+  },
+  {
+    period: { en: 'Oct 2024 – Present', fr: 'Oct. 2024 – Présent' },
+    title: { en: 'Computer Science Teaching Assistant', fr: 'Assistant Pédagogique en Informatique' },
+    org: { en: 'ESGIS TOGO · Part-time', fr: 'ESGIS TOGO · Temps partiel' },
+    location: { en: 'Lomé, Togo', fr: 'Lomé, Togo' },
+    category: 'experience',
+    description: {
+      en: 'Supervision of tutorials and lab sessions for first- and second-year undergraduate students. Hands-on sessions in algorithms, C programming and data modelling/SQL (MySQL, phpMyAdmin). Assessment of lab work and teaching good coding practices.',
+      fr: 'Encadrement des TD et TP pour les étudiants de Licence 1 et 2. Séances pratiques en algorithmique, programmation C et modélisation/SQL (MySQL, phpMyAdmin). Évaluation des travaux pratiques et transmission des bonnes pratiques de code.',
     },
-    school: 'Collège Protestant de Notsè',
-    location: 'Notsè, Togo',
-    period: { fr: '2022', en: '2022' },
-    details: { fr: [], en: [] },
+  },
+  {
+    period: { en: 'Mar 2025 – Feb 2026', fr: 'Mars 2025 – févr. 2026' },
+    title: { en: 'Web Developer & Front-End Lead', fr: 'Développeur Web & Responsable Front-End' },
+    org: { en: 'DKOM GROUP · Full-time / Hybrid', fr: 'DKOM GROUP · Temps plein / Hybride' },
+    location: { en: 'Lomé, Togo', fr: 'Lomé, Togo' },
+    category: 'experience',
+    description: {
+      en: 'Progressed from a 3-month internship to a front-end leadership role within the technical team. Built interfaces with React.js and integrated them with a Django / PostgreSQL backend via REST APIs. Led version control (Git) and kept design and implementation consistent.',
+      fr: "Évolution d'un stage de 3 mois vers un poste de responsabilité front-end au sein de l'équipe technique. Développement des interfaces avec React.js et intégration avec un backend Django / PostgreSQL via API REST. Pilotage du versionnement (Git) et cohérence design-intégration.",
+    },
+  },
+  {
+    period: { en: 'May – Dec 2025', fr: 'Mai – déc. 2025' },
+    title: { en: 'UX Product Designer', fr: 'UX Product Designer' },
+    org: { en: 'Python Togo (PyCon Togo)', fr: 'Python Togo (PyCon Togo)' },
+    category: 'volunteer',
+    description: {
+      en: "Visual identity and interfaces for the Python community's national events.",
+      fr: 'Identité visuelle et interfaces pour les événements nationaux de la communauté Python.',
+    },
+  },
+  {
+    period: { en: 'Jul 2025 – Present', fr: 'Juil. 2025 – Présent' },
+    title: { en: 'Microsoft Student Ambassador (MSA)', fr: 'Microsoft Student Ambassador (MSA)' },
+    org: { en: 'Microsoft', fr: 'Microsoft' },
+    category: 'volunteer',
+    description: {
+      en: 'Organising technical workshops, promoting Cloud & AI technologies, and leading the university tech community.',
+      fr: 'Organisation de workshops techniques, promotion des technologies Cloud & IA, animation de la communauté tech universitaire.',
+    },
+  },
+  {
+    period: { en: 'Oct 2025 – Feb 2026', fr: 'Oct. 2025 – févr. 2026' },
+    title: { en: 'Graphic Design Lead', fr: 'Responsable Design Graphique' },
+    org: { en: 'Tech Communities Club (TCC) ESGIS', fr: 'Tech Communities Club (TCC) ESGIS' },
+    category: 'volunteer',
+    description: {
+      en: "Designed the club's official visual materials and coordinated its communication.",
+      fr: 'Conception des supports visuels officiels et coordination de la communication du club.',
+    },
+  },
+  {
+    period: { en: 'Apr 2026 – Present', fr: 'Avr. 2026 – Présent' },
+    title: { en: 'Full Stack Developer', fr: 'Développeur Full Stack' },
+    org: { en: 'NANOO STUDIO · Full-time', fr: 'NANOO STUDIO · Temps plein' },
+    location: { en: 'Lomé, Togo', fr: 'Lomé, Togo' },
+    category: 'experience',
+    description: {
+      en: 'Design and development of scalable web applications (Next.js, React.js, Node.js). Data flow modelling and management with PostgreSQL and Supabase. Prototyping of modern, usability-focused interfaces in Figma.',
+      fr: "Conception et développement d'applications web scalables (Next.js, React.js, Node.js). Modélisation et gestion des flux de données avec PostgreSQL et Supabase. Prototypage d'interfaces modernes sur Figma, centrées sur l'ergonomie.",
+    },
+  },
+  {
+    period: { en: 'Apr 2026', fr: 'Avr. 2026' },
+    title: { en: 'EF SET English Certificate — C1 Advanced (66/100)', fr: 'EF SET English Certificate — C1 Advanced (66/100)' },
+    org: { en: 'EF SET', fr: 'EF SET' },
+    category: 'milestone',
+  },
+  {
+    period: { en: 'May 2026', fr: 'Mai 2026' },
+    title: { en: 'Microsoft Learn Student Ambassador 2026', fr: 'Microsoft Learn Student Ambassador 2026' },
+    org: { en: 'Microsoft', fr: 'Microsoft' },
+    category: 'milestone',
+  },
+  {
+    period: { en: '2026', fr: '2026' },
+    title: { en: '1st Place — TOGO CODE RUN Design Challenge', fr: '1ère Place — TOGO CODE RUN Design Challenge' },
+    org: { en: 'TOGO CODE RUN', fr: 'TOGO CODE RUN' },
+    category: 'milestone',
   },
 ];
-
-export const experiences: Experience[] = [
-  {
-    role: { fr: 'Développeur Full Stack', en: 'Full Stack Developer' },
-    org: 'NANOO STUDIO',
-    contract: { fr: 'Temps plein', en: 'Full-time' },
-    location: 'Lomé, Togo',
-    period: { fr: 'Avril 2026 - Présent', en: 'April 2026 - Present' },
-    current: true,
-    details: {
-      fr: [
-        "Conception et développement d'applications web scalables (Next.js, React.js, Node.js).",
-        'Modélisation et gestion des flux de données avec PostgreSQL et Supabase.',
-        "Prototypage d'interfaces modernes sur Figma, centrées sur l'ergonomie.",
-      ],
-      en: [
-        'Design and development of scalable web applications (Next.js, React.js, Node.js).',
-        'Data flow modelling and management with PostgreSQL and Supabase.',
-        'Prototyping of modern, usability-focused interfaces in Figma.',
-      ],
-    },
-  },
-  {
-    role: { fr: 'Assistant Pédagogique en Informatique', en: 'Computer Science Teaching Assistant' },
-    org: 'ESGIS TOGO',
-    contract: { fr: 'Temps partiel', en: 'Part-time' },
-    location: 'Lomé, Togo',
-    period: { fr: 'Octobre 2024 - Présent', en: 'October 2024 - Present' },
-    current: true,
-    details: {
-      fr: [
-        'Encadrement des TD et TP pour les étudiants de Licence 1 et 2.',
-        'Séances pratiques en algorithmique, programmation C et modélisation/SQL (MySQL, phpMyAdmin).',
-        'Évaluation des travaux pratiques et transmission des bonnes pratiques de code.',
-      ],
-      en: [
-        'Supervision of tutorials and lab sessions for first- and second-year undergraduate students.',
-        'Hands-on sessions in algorithms, C programming and data modelling/SQL (MySQL, phpMyAdmin).',
-        'Assessment of lab work and teaching good coding practices.',
-      ],
-    },
-  },
-  {
-    role: { fr: 'Développeur Web & Responsable Front-End', en: 'Web Developer & Front-End Lead' },
-    org: 'DKOM GROUP',
-    contract: { fr: 'Temps plein / Hybride', en: 'Full-time / Hybrid' },
-    location: 'Lomé, Togo',
-    period: { fr: 'Mars 2025 - Février 2026', en: 'March 2025 - February 2026' },
-    current: false,
-    details: {
-      fr: [
-        "Évolution d'un stage de 3 mois vers un poste de responsabilité front-end au sein de l'équipe technique.",
-        'Développement des interfaces avec React.js et intégration avec un backend Django / PostgreSQL via API REST.',
-        'Pilotage du versionnement (Git) et cohérence design-intégration.',
-      ],
-      en: [
-        'Progressed from a 3-month internship to a front-end leadership role within the technical team.',
-        'Built interfaces with React.js and integrated them with a Django / PostgreSQL backend via REST APIs.',
-        'Led version control (Git) and kept design and implementation consistent.',
-      ],
-    },
-  },
-];
-
-export const community: Community[] = [
-  {
-    role: { fr: 'Microsoft Student Ambassador (MSA)', en: 'Microsoft Student Ambassador (MSA)' },
-    org: 'Microsoft',
-    period: { fr: 'Juillet 2025 - Présent', en: 'July 2025 - Present' },
-    current: true,
-    details: {
-      fr: ['Organisation de workshops techniques, promotion des technologies Cloud & IA, animation de la communauté tech universitaire.'],
-      en: ['Organising technical workshops, promoting Cloud & AI technologies, and leading the university tech community.'],
-    },
-  },
-  {
-    role: { fr: 'Responsable Design Graphique', en: 'Graphic Design Lead' },
-    org: 'Tech Communities Club (TCC) ESGIS',
-    period: { fr: 'Oct. 2025 - Fév. 2026', en: 'Oct. 2025 - Feb. 2026' },
-    current: false,
-    details: {
-      fr: ['Conception des supports visuels officiels et coordination de la communication du club.'],
-      en: ["Designed the club's official visual materials and coordinated its communication."],
-    },
-  },
-  {
-    role: { fr: 'UX Product Designer', en: 'UX Product Designer' },
-    org: 'Python Togo (PyCon Togo)',
-    period: { fr: 'Mai 2025 - Déc. 2025', en: 'May 2025 - Dec. 2025' },
-    current: false,
-    details: {
-      fr: ['Identité visuelle et interfaces pour les événements nationaux de la communauté Python.'],
-      en: ["Visual identity and interfaces for the Python community's national events."],
-    },
-  },
-];
-
-export const distinctions: Distinction[] = [
-  {
-    title: { fr: 'Microsoft Learn Student Ambassador 2026', en: 'Microsoft Learn Student Ambassador 2026' },
-    org: 'Microsoft',
-    date: { fr: 'Mai 2026', en: 'May 2026' },
-  },
-  {
-    title: { fr: 'EF SET English Certificate - C1 Advanced (66/100)', en: 'EF SET English Certificate - C1 Advanced (66/100)' },
-    org: 'EF SET',
-    date: { fr: 'Avril 2026', en: 'April 2026' },
-  },
-  {
-    title: { fr: 'Exploratory Data Analysis for Machine Learning', en: 'Exploratory Data Analysis for Machine Learning' },
-    org: 'IBM',
-    date: { fr: 'Juillet 2024', en: 'July 2024' },
-  },
-  {
-    title: { fr: '1ère Place - TOGO CODE RUN Design Challenge', en: '1st Place - TOGO CODE RUN Design Challenge' },
-    date: { fr: '2026', en: '2026' },
-  },
-];
-
-export const skills: SkillGroup[] = [
-  { label: { fr: 'Langages', en: 'Languages' }, items: ['C', 'C++', 'Python', 'JavaScript (ES6+)', 'TypeScript', 'PHP', 'SQL'] },
-  {
-    label: { fr: 'Frameworks', en: 'Frameworks' },
-    items: ['React.js', 'Next.js', 'Django', 'Django REST Framework', 'Node.js', 'ASP.NET MVC', 'J2EE'],
-  },
-  {
-    label: { fr: 'Bases de données', en: 'Databases' },
-    items: ['PostgreSQL', 'Oracle', 'SQL Server', 'MySQL', 'NoSQL', 'Supabase'],
-  },
-  {
-    label: { fr: 'Génie logiciel & outils', en: 'Software engineering & tools' },
-    items: ['Git', 'GitHub', { fr: 'Docker (notions)', en: 'Docker (basics)' }, 'CI/CD', { fr: 'API REST', en: 'REST API' }, 'UML', 'MERISE', 'Agile'],
-  },
-  {
-    label: { fr: 'Design & IHM', en: 'Design & HCI' },
-    items: ['Figma', 'Photoshop', { fr: 'Prototypage UX/UI', en: 'UX/UI prototyping' }, 'Wireframing'],
-  },
-];
-
-export const languages: { name: Localized<string>; level?: Localized<string> }[] = [
-  { name: { fr: 'Français', en: 'French' }, level: { fr: 'Natif', en: 'Native' } },
-  { name: { fr: 'Anglais', en: 'English' }, level: { fr: 'Technique', en: 'Technical' } },
-  { name: { fr: 'Éwé', en: 'Ewe' } },
-];
-
-export const interests: Localized<string[]> = {
-  fr: ['Piano', 'Football', 'Arts graphiques'],
-  en: ['Piano', 'Football', 'Graphic arts'],
-};

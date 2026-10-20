@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://nels-g.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nels-g.github.io/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nels-g.github.io/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nels-g.github.io/" />
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://nels-g.github.io/en</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nels-g.github.io/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nels-g.github.io/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nels-g.github.io/" />
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://nels-g.github.io/publications</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nels-g.github.io/publications" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nels-g.github.io/en/publications" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nels-g.github.io/publications" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nels-g.github.io/en/publications</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nels-g.github.io/publications" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nels-g.github.io/en/publications" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nels-g.github.io/publications" />
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://nels-g.github.io/talks</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nels-g.github.io/talks" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nels-g.github.io/en/talks" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nels-g.github.io/talks" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nels-g.github.io/en/talks</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nels-g.github.io/talks" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nels-g.github.io/en/talks" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nels-g.github.io/talks" />
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nels-g.github.io/projects</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nels-g.github.io/projects" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nels-g.github.io/en/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nels-g.github.io/projects" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nels-g.github.io/en/projects</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nels-g.github.io/projects" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nels-g.github.io/en/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nels-g.github.io/projects" />
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://nels-g.github.io/teaching</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nels-g.github.io/teaching" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nels-g.github.io/en/teaching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nels-g.github.io/teaching" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nels-g.github.io/en/teaching</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nels-g.github.io/teaching" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nels-g.github.io/en/teaching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nels-g.github.io/teaching" />
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nels-g.github.io/journey</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nels-g.github.io/journey" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nels-g.github.io/en/journey" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nels-g.github.io/journey" />
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nels-g.github.io/en/journey</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nels-g.github.io/journey" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nels-g.github.io/en/journey" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nels-g.github.io/journey" />
+    <priority>0.7</priority>
+  </url>
+</urlset>

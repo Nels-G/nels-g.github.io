@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/shared/Header/Header.astro';
+import Footer from '../components/shared/Footer/Footer.astro';
+import PageHeader from '../components/shared/PageHeader/PageHeader.astro';
+import { useTranslations } from '../i18n/utils';
+
+const lang = (Astro.currentLocale ?? 'fr') as 'fr' | 'en';
+const t = useTranslations(lang);
+
+const teachingAreas = [t('teaching.area1'), t('teaching.area2'), t('teaching.area3'), t('teaching.area4'), t('teaching.area5')];
+---
+
+<BaseLayout title="Teaching · Kossi Nelson Galley" description="Teaching role of Kossi Nelson Galley at ESGIS.">
+  <Header />
+
+  <PageHeader badge={t('teaching.badge')} title={t('teaching.title')}>
+    <p set:html={t('teaching.intro')} />
+  </PageHeader>
+
+  <section class="teaching-content">
+    <h2 class="teaching-subheading">{t('teaching.areasHeading')}</h2>
+    <ul class="teaching-areas">
+      {teachingAreas.map((area) => <li>{area}</li>)}
+    </ul>
+
+    <h2 class="teaching-subheading">{t('teaching.approachHeading')}</h2>
+    <p class="teaching-text">
+      {t('teaching.text')}
+    </p>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .teaching-content {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+  }
+  .teaching-subheading {
+    font-family: var(--font-urbanist);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-text);
+    margin: 2rem 0 1rem;
+  }
+  .teaching-subheading:first-child {
+    margin-top: 0;
+  }
+  .teaching-areas {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .teaching-areas li {
+    font-family: var(--font-urbanist);
+    font-size: 0.85rem;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+  }
+  .teaching-quote {
+    font-family: var(--font-lora);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--color-text);
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1.25rem;
+    margin: 1rem 0;
+  }
+  .teaching-text {
+    font-family: var(--font-lora);
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+</style>

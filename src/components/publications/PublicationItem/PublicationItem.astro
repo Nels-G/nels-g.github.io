@@ -1,0 +1,26 @@
+---
+import './PublicationItem.css';
+import type { Publication } from '../../../data/publications';
+
+interface Props {
+  publication: Publication;
+  lang: 'fr' | 'en';
+}
+
+const { publication, lang } = Astro.props;
+---
+
+<article class="publication-item">
+  <h3 class="publication-title">{publication.title[lang]}</h3>
+  <p class="publication-meta">
+    {publication.authors} · {publication.venue[lang]} · <span class="publication-year">{publication.year[lang]}</span>
+  </p>
+  {publication.description && <p class="publication-description">{publication.description[lang]}</p>}
+  {publication.links && publication.links.length > 0 && (
+    <div class="publication-links">
+      {publication.links.map((link) => (
+        <a href={link.url} target="_blank">{link.label[lang]} ↗</a>
+      ))}
+    </div>
+  )}
+</article>

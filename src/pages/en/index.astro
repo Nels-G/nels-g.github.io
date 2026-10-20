@@ -1,5 +1,19 @@
 ---
-import HomeView from '../../views/HomeView.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/shared/Header/Header.astro';
+import Footer from '../../components/shared/Footer/Footer.astro';
+import Bio from '../../components/home/Bio/Bio.astro';
+import ResearchInterests from '../../components/home/ResearchInterests/ResearchInterests.astro';
+import Contact from '../../components/home/Contact/Contact.astro';
 ---
 
-<HomeView />
+<BaseLayout
+  title="Kossi Nelson Galley — Master's Candidate in Computer Science · Lomé, Togo"
+  description="Kossi Nelson Galley, Bachelor's in Software Architecture (ESGIS Togo) and Master's candidate in Computer Science: software engineering, computer vision and human-computer interaction."
+>
+  <Header />
+  <Bio />
+  <ResearchInterests />
+  <Contact />
+  <Footer />
+</BaseLayout>

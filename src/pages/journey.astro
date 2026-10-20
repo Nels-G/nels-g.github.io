@@ -1,5 +1,34 @@
 ---
-import JourneyView from '../views/JourneyView.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/shared/Header/Header.astro';
+import Footer from '../components/shared/Footer/Footer.astro';
+import PageHeader from '../components/shared/PageHeader/PageHeader.astro';
+import TimelineItem from '../components/journey/TimelineItem/TimelineItem.astro';
+import { journey } from '../data/journey';
+import { useTranslations } from '../i18n/utils';
+
+const lang = (Astro.currentLocale ?? 'fr') as 'fr' | 'en';
+const t = useTranslations(lang);
 ---
 
-<JourneyView />
+<BaseLayout title="Journey · Kossi Nelson Galley" description="Academic and professional journey of Kossi Nelson Galley.">
+  <Header />
+
+  <PageHeader badge={t('journey.badge')} title={t('journey.title')}>
+    <p>{t('journey.intro')}</p>
+  </PageHeader>
+
+  <section class="journey-timeline">
+    {journey.map((entry) => <TimelineItem entry={entry} lang={lang} />)}
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .journey-timeline {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+  }
+</style>

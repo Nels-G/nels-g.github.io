@@ -1,20 +1,18 @@
 ---
-import { useTranslations, type Lang } from '../../../i18n/utils';
-import { profile } from '../../../data/profile';
 import './Footer.css';
+import { useTranslations } from '../../../i18n/utils';
 
-const lang = (Astro.currentLocale ?? 'fr') as Lang;
+const lang = (Astro.currentLocale ?? 'fr') as 'fr' | 'en';
 const t = useTranslations(lang);
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <div class="content footer-inner">
-    <p>© {year} {profile.name}. {t('footer.rights')}</p>
-    <ul class="footer-links">
-      <li><a href={`mailto:${profile.email}`}>Email</a></li>
-      <li><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub</a></li>
-      <li><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-    </ul>
-  </div>
+  <p class="footer-name">Kossi Nelson Galley</p>
+  <p class="footer-role">
+    {t('footer.role')}
+  </p>
+  <p class="footer-copyright">
+    © {year} Kossi Nelson Galley · {t('footer.rights')}
+  </p>
 </footer>

@@ -1,0 +1,25 @@
+---
+import './ProjectCard.css';
+import { useTranslations } from '../../../i18n/utils';
+import type { Project } from '../../../data/projects';
+
+interface Props {
+  project: Project;
+  lang: 'fr' | 'en';
+}
+
+const { project, lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<article class="project-card">
+  <div class="project-card-header">
+    <span class="project-category">{t(`projects.category.${project.category}`)}</span>
+    <span class="project-period">{project.period[lang]}</span>
+  </div>
+  <h3 class="project-title">
+    {project.url ? <a href={project.url} target="_blank">{project.title[lang]} ↗</a> : project.title[lang]}
+  </h3>
+  <p class="project-affiliation">{project.affiliation[lang]}</p>
+  <p class="project-description">{project.description[lang]}</p>
+</article>

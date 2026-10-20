@@ -1,0 +1,27 @@
+---
+import './ResearchInterests.css';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = (Astro.currentLocale ?? 'fr') as 'fr' | 'en';
+const t = useTranslations(lang);
+
+const interests = [
+  t('research.item1'),
+  t('research.item2'),
+  t('research.item3'),
+  t('research.item4'),
+  t('research.item5'),
+];
+---
+
+<section class="research-section">
+  <div class="research-header">
+    <span class="section-badge">{t('research.badge')}</span>
+    <div class="research-divider-line"></div>
+  </div>
+  <ul class="research-list">
+    {interests.map((interest) => (
+      <li>{interest}</li>
+    ))}
+  </ul>
+</section>

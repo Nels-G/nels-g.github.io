@@ -1,0 +1,85 @@
+.bio-section {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+.bio-layout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+.bio-photo {
+  width: 200px;
+  height: auto;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+.bio-top-content {
+  display: flex;
+  flex-direction: column;
+}
+.section-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-urbanist);
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 0.6rem;
+}
+.bio-title {
+  font-family: var(--font-lora);
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+.bio-first-p {
+  font-family: var(--font-lora);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  text-align: justify;
+  line-height: 1.6;
+}
+.bio-first-p strong {
+  font-weight: 600;
+}
+.bio-text {
+  font-family: var(--font-lora);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  text-align: justify;
+}
+.bio-text p {
+  margin-bottom: 1rem;
+}
+.bio-text strong {
+  font-weight: 600;
+}
+.bio-text a {
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .bio-layout {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .section-badge {
+    align-self: center;
+  }
+  .bio-photo {
+    width: 160px;
+  }
+  .bio-title {
+    font-size: 1.25rem;
+  }
+  /* Remove text-align overrides so they remain justified */
+}

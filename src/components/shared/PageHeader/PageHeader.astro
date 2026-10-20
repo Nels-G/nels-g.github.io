@@ -4,17 +4,18 @@ import './PageHeader.css';
 interface Props {
   badge: string;
   title: string;
-  intro?: string;
 }
 
-const { badge, title, intro } = Astro.props;
+const { badge, title } = Astro.props;
 ---
 
-<header class="page-header content">
-  <div class="section-head">
+<div class="page-header">
+  <div class="page-header-top">
     <span class="section-badge">{badge}</span>
-    <div class="section-line"></div>
+    <div class="page-divider-line"></div>
   </div>
   <h1 class="page-title">{title}</h1>
-  {intro && <p class="page-intro">{intro}</p>}
-</header>
+  <div class="page-intro">
+    <slot />
+  </div>
+</div>

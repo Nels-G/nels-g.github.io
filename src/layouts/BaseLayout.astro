@@ -1,103 +1,127 @@
 ---
 import '../styles/global.css';
-import Header from '../components/shared/Header/Header.astro';
-import Footer from '../components/shared/Footer/Footer.astro';
 import { FlagFr, FlagEn } from '../i18n/flags';
-import { getAlternatePaths, useTranslations, type Lang } from '../i18n/utils';
-import { profile } from '../data/profile';
+import { getAlternatePaths } from '../i18n/utils';
 
 interface Props {
-  title?: string;
+  title: string;
   description?: string;
   image?: string;
 }
 
-const lang = (Astro.currentLocale ?? 'fr') as Lang;
-const t = useTranslations(lang);
-
 const {
   title,
-  description = t('meta.description'),
-  image = profile.photo,
+  description = "Kossi Nelson Galley - Candidat au Master 1 Informatique, Lomé, Togo",
+  image = '/images/nelson-photo.jpg',
 } = Astro.props;
+const lang = (Astro.currentLocale ?? 'fr') as 'fr' | 'en';
 
-const fullTitle = title ? `${title} | ${profile.name}` : t('meta.home');
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(image, Astro.site);
 const { fr: frPath, en: enPath } = getAlternatePaths(Astro.url.pathname);
 const alternateFrURL = new URL(frPath, Astro.site);
 const alternateEnURL = new URL(enPath, Astro.site);
+const ogLocale = lang === 'fr' ? 'fr_FR' : 'en_US';
+const ogLocaleAlternate = lang === 'fr' ? 'en_US' : 'fr_FR';
 
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: profile.name,
-  alternateName: profile.shortName,
-  description: t('meta.description'),
+  name: 'Kossi Nelson Galley',
+  alternateName: 'Nelson Galley',
+  jobTitle: lang === 'fr' ? 'Candidat au Master 1 Informatique' : "Master's Candidate in Computer Science",
+  description:
+    lang === 'fr'
+      ? "Titulaire d'une licence en Architecture Logicielle (ESGIS Togo), candidat au Master 1 Informatique : génie logiciel, vision par ordinateur et interaction homme-machine."
+      : "Bachelor's in Software Architecture (ESGIS Togo) and Master's candidate in Computer Science: software engineering, computer vision and human-computer interaction.",
   url: Astro.site?.href,
-  image: new URL(profile.photo, Astro.site).href,
-  address: { '@type': 'PostalAddress', addressLocality: 'Lomé', addressCountry: 'TG' },
-  alumniOf: [{ '@type': 'CollegeOrUniversity', name: 'ESGIS TOGO' }],
-  sameAs: [profile.github, profile.linkedin],
+  image: ogImageURL.href,
+  nationality: { '@type': 'Country', name: 'Togo' },
+  worksFor: { '@type': 'Organization', name: 'NANOO STUDIO' },
+  alumniOf: [{ '@type': 'CollegeOrUniversity', name: 'ESGIS', url: 'https://www.esgis.org' }],
+  sameAs: ['https://www.linkedin.com/in/nelson-galley/', 'https://github.com/Nels-G'],
 };
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" hreflang="fr" href={alternateFrURL} />
     <link rel="alternate" hreflang="en" href={alternateEnURL} />
     <link rel="alternate" hreflang="x-default" href={alternateFrURL} />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="sitemap" href="/sitemap.xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Urbanist:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600&family=Lora:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
-    <title>{fullTitle}</title>
+    <title>{title}</title>
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={profile.name} />
-    <meta property="og:title" content={fullTitle} />
+    <meta property="og:site_name" content="Kossi Nelson Galley" />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImageURL} />
-    <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_US'} />
-    <meta property="og:locale:alternate" content={lang === 'fr' ? 'en_US' : 'fr_FR'} />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content={fullTitle} />
+    <meta property="og:image:width" content="1080" />
+    <meta property="og:image:height" content="1080" />
+    <meta property="og:image:alt" content="Kossi Nelson Galley" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(personSchema)} />
   </head>
   <body>
-    <Header />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+    <slot />
 
     <div class="lang-gate" id="lang-gate" hidden>
-      <div class="lang-gate-card" role="dialog" aria-modal="true" aria-labelledby="lang-gate-title">
-        <h2 class="lang-gate-title" id="lang-gate-title">Choisissez votre langue</h2>
+      <div class="lang-gate-card">
+        <div class="lang-gate-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M3 12h18"></path>
+            <path d="M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9z"></path>
+          </svg>
+        </div>
+        <h2 class="lang-gate-title">Choisissez votre langue</h2>
         <p class="lang-gate-subtitle">Choose your language</p>
+        <p class="lang-gate-desc">
+          Sélectionnez la langue dans laquelle vous souhaitez naviguer.<br />
+          Select the language you'd like to browse in.
+        </p>
+
         <div class="lang-gate-options">
           <button type="button" class="lang-gate-option" data-lang="fr">
             <span class="lang-gate-flag" set:html={FlagFr} />
-            <span>Français</span>
+            <span class="lang-gate-option-text">
+              <span class="lang-gate-option-name">Français</span>
+              <span class="lang-gate-option-alt">French</span>
+            </span>
+            <svg class="lang-gate-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
           <button type="button" class="lang-gate-option" data-lang="en">
             <span class="lang-gate-flag" set:html={FlagEn} />
-            <span>English</span>
+            <span class="lang-gate-option-text">
+              <span class="lang-gate-option-name">English</span>
+              <span class="lang-gate-option-alt">Anglais</span>
+            </span>
+            <svg class="lang-gate-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
         </div>
       </div>
@@ -107,14 +131,13 @@ const personSchema = {
       .lang-gate {
         position: fixed;
         inset: 0;
-        background: rgba(14, 26, 23, 0.4);
+        background: rgba(26, 26, 26, 0.35);
         backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
         display: flex;
         align-items: center;
         justify-content: center;
         z-index: 1000;
-        padding: 1.25rem;
+        padding: 1.5rem;
       }
       .lang-gate[hidden] {
         display: none;
@@ -122,71 +145,107 @@ const personSchema = {
       .lang-gate-card {
         background: var(--color-bg);
         border-radius: 20px;
-        padding: 2rem 1.75rem;
-        max-width: 360px;
+        padding: 2.25rem 2rem;
+        max-width: 380px;
         width: 100%;
         text-align: center;
         box-shadow: 0 20px 48px rgba(0, 0, 0, 0.18);
       }
+      .lang-gate-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: var(--color-accent-light);
+        color: var(--color-accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.25rem;
+      }
       .lang-gate-title {
-        font-family: var(--font-serif);
+        font-family: var(--font-lora);
+        font-weight: 600;
         font-size: 1.3rem;
+        color: var(--color-text);
+        margin-bottom: 0.25rem;
       }
       .lang-gate-subtitle {
+        font-family: var(--font-lora);
+        font-size: 1rem;
         color: var(--color-text-secondary);
-        margin-bottom: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+      .lang-gate-desc {
+        font-family: var(--font-urbanist);
+        font-size: 0.85rem;
+        color: var(--color-text-secondary);
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
       }
       .lang-gate-options {
         display: flex;
         flex-direction: column;
-        gap: 0.6rem;
+        gap: 0.65rem;
       }
       .lang-gate-option {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
-        font: 600 0.95rem var(--font-sans);
-        color: var(--color-text);
-        background: var(--color-bg);
-        border: 1.5px solid var(--color-border);
-        border-radius: 12px;
-        padding: 0.8rem 1rem;
+        gap: 0.85rem;
+        width: 100%;
+        background: var(--color-nav-bg);
+        border: 1px solid transparent;
+        border-radius: 14px;
+        padding: 0.75rem 1rem;
         cursor: pointer;
-        transition: border-color 0.2s ease, background 0.2s ease;
+        text-align: left;
+        transition: all 0.2s ease;
       }
       .lang-gate-option:hover {
         border-color: var(--color-accent);
         background: var(--color-accent-light);
       }
       .lang-gate-flag {
-        display: flex;
-        width: 26px;
-        height: 18px;
-        border-radius: 3px;
+        flex-shrink: 0;
+        width: 28px;
+        height: 20px;
+        border-radius: 4px;
         overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .lang-gate-flag :global(svg) {
         width: 100%;
         height: 100%;
       }
+      .lang-gate-option-text {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .lang-gate-option-name {
+        font-family: var(--font-urbanist);
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: var(--color-text);
+      }
+      .lang-gate-option-alt {
+        font-family: var(--font-urbanist);
+        font-size: 0.8rem;
+        color: var(--color-text-secondary);
+      }
+      .lang-gate-arrow {
+        flex-shrink: 0;
+        color: var(--color-text-secondary);
+      }
     </style>
 
     <script is:inline>
       (function () {
-        var KEY = 'preferredLang';
-
-        // Un clic sur le sélecteur de langue du header vaut aussi choix.
-        document.querySelectorAll('[data-set-lang]').forEach(function (a) {
-          a.addEventListener('click', function () {
-            try {
-              localStorage.setItem(KEY, a.getAttribute('data-set-lang'));
-            } catch (e) {}
-          });
-        });
-
+        var STORAGE_KEY = 'preferredLang';
         var stored = null;
         try {
-          stored = localStorage.getItem(KEY);
+          stored = localStorage.getItem(STORAGE_KEY);
         } catch (e) {}
         if (stored) return;
 
@@ -194,22 +253,28 @@ const personSchema = {
         if (!gate) return;
         gate.hidden = false;
 
-        gate.querySelectorAll('.lang-gate-option').forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            var chosen = btn.getAttribute('data-lang');
+        var buttons = gate.querySelectorAll('.lang-gate-option');
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].addEventListener('click', function (event) {
+            var chosen = event.currentTarget.getAttribute('data-lang');
             try {
-              localStorage.setItem(KEY, chosen);
+              localStorage.setItem(STORAGE_KEY, chosen);
             } catch (e) {}
             gate.hidden = true;
 
             var path = window.location.pathname;
             var isEn = path === '/en' || path.indexOf('/en/') === 0;
             var target = path;
-            if (chosen === 'en' && !isEn) target = path === '/' ? '/en' : '/en' + path;
-            else if (chosen === 'fr' && isEn) target = path.replace(/^\/en/, '') || '/';
-            if (target !== path) window.location.href = target;
+            if (chosen === 'en' && !isEn) {
+              target = path === '/' ? '/en' : '/en' + path;
+            } else if (chosen === 'fr' && isEn) {
+              target = path.replace(/^\/en/, '') || '/';
+            }
+            if (target !== path) {
+              window.location.href = target;
+            }
           });
-        });
+        }
       })();
     </script>
   </body>

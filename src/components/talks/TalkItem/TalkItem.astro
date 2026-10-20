@@ -1,0 +1,20 @@
+---
+import './TalkItem.css';
+import type { Talk } from '../../../data/talks';
+
+interface Props {
+  talk: Talk;
+  lang: 'fr' | 'en';
+}
+
+const { talk, lang } = Astro.props;
+---
+
+<div class="talk-item">
+  <div class="talk-date">{talk.date}</div>
+  <div class="talk-content">
+    <span class="talk-type">{talk.type[lang]}</span>
+    <h3 class="talk-title">{talk.title[lang]}</h3>
+    <p class="talk-meta">{talk.event[lang]} · {talk.location[lang]}</p>
+  </div>
+</div>

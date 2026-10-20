@@ -15,11 +15,14 @@ npm run build    # génère dist/
 
 | Quoi | Où |
 | --- | --- |
-| Textes de l'interface (FR/EN) | `src/i18n/ui.ts` |
-| Projets | `src/data/projects.ts` (+ images dans `public/projects/`) |
-| Communications, ateliers, workshops | `src/data/talks.ts` |
-| Formation, expérience, engagements, distinctions, compétences, langues | `src/data/journey.ts` |
-| Coordonnées | `src/data/profile.ts` |
+| Biographie, axes de recherche, textes des pages (FR/EN) | `src/i18n/ui.ts` |
+| Parcours (formation, expérience, bénévolat, distinctions) | `src/data/journey.ts` |
+| Projets | `src/data/projects.ts` |
+| Conférences / ateliers | `src/data/talks.ts` |
+| Publications | `src/data/publications.ts` |
+| Email, LinkedIn, GitHub | `src/components/home/Contact/Contact.astro` |
+
+Design identique au site de Dr. Yvette Gbedevi (Lora + Urbanist, accent `#3457D5`).
 
 Chaque texte traduisible a la forme `{ fr: '...', en: '...' }`.
 

@@ -1,0 +1,27 @@
+---
+import './Bio.css';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = (Astro.currentLocale ?? 'fr') as 'fr' | 'en';
+const t = useTranslations(lang);
+---
+
+<section class="bio-section">
+  <div class="bio-layout">
+    <img src="/images/nelson-photo.jpg" alt="Kossi Nelson Galley" class="bio-photo" />
+
+    <div class="bio-top-content">
+      <span class="section-badge">{t('bio.badge')}</span>
+      <h2 class="bio-title">
+        {t('bio.title')}
+      </h2>
+      <p class="bio-first-p" set:html={t('bio.p1')} />
+    </div>
+  </div>
+
+  <div class="bio-text">
+    <p set:html={t('bio.p2')} />
+    <p set:html={t('bio.p3')} />
+    <p set:html={t('bio.p4')} />
+  </div>
+</section>

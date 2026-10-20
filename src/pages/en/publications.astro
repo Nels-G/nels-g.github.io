@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/shared/Header/Header.astro';
+import Footer from '../../components/shared/Footer/Footer.astro';
+import PageHeader from '../../components/shared/PageHeader/PageHeader.astro';
+import PublicationItem from '../../components/publications/PublicationItem/PublicationItem.astro';
+import { publications } from '../../data/publications';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = (Astro.currentLocale ?? 'fr') as 'fr' | 'en';
+const t = useTranslations(lang);
+---
+
+<BaseLayout title="Publications · Kossi Nelson Galley" description="Publications of Kossi Nelson Galley.">
+  <Header />
+
+  <PageHeader badge={t('publications.badge')} title={t('publications.title')}>
+    <p set:html={t('publications.intro')} />
+  </PageHeader>
+
+  <section class="publications-list">
+    {publications.map((publication) => (
+      <PublicationItem publication={publication} lang={lang} />
+    ))}
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .publications-list {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+  }
+</style>

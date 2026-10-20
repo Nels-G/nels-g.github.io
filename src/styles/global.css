@@ -1,131 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600&family=Lora:wght@400;500;600&display=swap');
+
 :root {
-  --color-accent: #00a578;
-  --color-accent-text: #007a58;
-  --color-accent-light: #e6f6f0;
-  --color-text: #161a1d;
-  --color-text-secondary: #4b5257;
-  --color-muted: #7a8288;
-  --color-bg: #ffffff;
-  --color-nav-bg: #f4f6f5;
-  --color-border: #e2e5e3;
+  /* Couleurs */
+  --color-accent: #3457D5;
+  --color-accent-light: #EAF0FB;
+  --color-text: #1A1A1A;
+  --color-text-secondary: #4A4A4A;
+  --color-bg: #FFFFFF;
+  --color-nav-bg: #F5F5F5;
+  --color-border: #E0E0E0;
 
-  --font-serif: 'Source Serif 4', Georgia, serif;
-  --font-sans: 'Urbanist', system-ui, sans-serif;
-
-  --content-width: 900px;
+  /* Typographie */
+  --font-urbanist: 'Urbanist', sans-serif;
+  --font-lora: 'Lora', serif;
 }
 
-*,
-*::before,
-*::after {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: var(--font-serif);
+  font-family: var(--font-lora);
   color: var(--color-text);
-  background: var(--color-bg);
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-}
-
-img {
-  max-width: 100%;
-  display: block;
+  background-color: var(--color-bg);
+  line-height: 1.6;
 }
 
 a {
-  color: var(--color-accent-text);
+  color: var(--color-accent);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-}
-
-/* Conteneur de contenu */
-.content {
-  max-width: var(--content-width);
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-/* Badge + ligne de séparation */
-.section-head {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.section-badge {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-accent-text);
-  background: var(--color-accent-light);
-  padding: 0.25rem 0.75rem;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-
-.section-line {
-  flex: 1;
-  height: 1px;
-  background: var(--color-border);
-}
-
-.section {
-  margin: 3rem auto;
-}
-
-.section-title {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: 1.3rem;
-  margin-bottom: 1.25rem;
-}
-
-/* Étiquettes de technologies */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  list-style: none;
-}
-
-.tags li {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--color-text-secondary);
-  background: var(--color-nav-bg);
-  padding: 0.15rem 0.6rem;
-  border-radius: 6px;
-}
-
-.meta {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  color: var(--color-muted);
-}
-
-.status {
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--color-accent-text);
-  background: var(--color-accent-light);
-  padding: 0.1rem 0.5rem;
-  border-radius: 999px;
 }

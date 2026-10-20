@@ -1,17 +1,7 @@
-// Communications, conférences, ateliers et workshops.
-// Vide pour l'instant : ajouter uniquement des événements confirmés.
-//
-// Exemple d'entrée :
-// {
-//   title: { fr: 'Titre de la présentation', en: 'Talk title' },
-//   event: { fr: "Nom de l'événement", en: 'Event name' },
-//   type: { fr: 'Workshop', en: 'Workshop' },
-//   location: { fr: 'Lomé, Togo', en: 'Lomé, Togo' },
-//   date: '2026',
-//   link: 'https://...', // optionnel : slides, vidéo, page de l'événement
-// },
-
-type Localized = { fr: string; en: string };
+export interface Localized {
+  fr: string;
+  en: string;
+}
 
 export interface Talk {
   title: Localized;
@@ -19,7 +9,15 @@ export interface Talk {
   type: Localized;
   location: Localized;
   date: string;
-  link?: string;
 }
 
+// Vide pour l'instant : ajouter uniquement des conférences/ateliers confirmés.
+// Exemple :
+// {
+//   title: { en: 'Talk title', fr: 'Titre de la présentation' },
+//   event: { en: 'Event name', fr: "Nom de l'événement" },
+//   type: { en: 'Workshop', fr: 'Atelier' },
+//   location: { en: 'Lomé, Togo', fr: 'Lomé, Togo' },
+//   date: '2026',
+// },
 export const talks: Talk[] = [];

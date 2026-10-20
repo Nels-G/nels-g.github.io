@@ -1,66 +1,114 @@
 ---
-import { useTranslations, getAlternatePaths, localizePath, type Lang } from '../../../i18n/utils';
+import { useTranslations, getAlternatePaths } from '../../../i18n/utils';
 import { FlagFr, FlagEn } from '../../../i18n/flags';
 import './Header.css';
 
-const lang = (Astro.currentLocale ?? 'fr') as Lang;
+const lang = (Astro.currentLocale ?? 'fr') as 'fr' | 'en';
 const t = useTranslations(lang);
 
 const navItems = [
   { key: 'nav.home', href: '/' },
-  { key: 'nav.projects', href: '/projects' },
+  { key: 'nav.publications', href: '/publications' },
   { key: 'nav.talks', href: '/talks' },
+  { key: 'nav.projects', href: '/projects' },
+  { key: 'nav.teaching', href: '/teaching' },
   { key: 'nav.journey', href: '/journey' },
 ] as const;
 
-const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+let currentPath = Astro.url.pathname;
+
+// Resolve localized paths
 const { fr: frPath, en: enPath } = getAlternatePaths(currentPath);
 
-function isActive(href: string) {
-  const target = localizePath(href, lang);
-  if (href === '/') return currentPath === target;
-  return currentPath === target || currentPath.startsWith(`${target}/`);
-}
 ---
 
 <header class="site-header">
-  <div class="header-top content">
-    <a href={localizePath('/', lang)} class="site-title">Kossi Nelson Galley</a>
-    <div class="lang-switcher" aria-label="Langue / Language">
-      <a href={frPath} data-set-lang="fr" class:list={['lang-option', { current: lang === 'fr' }]} aria-current={lang === 'fr' ? 'true' : undefined}>
-        <span class="flag" set:html={FlagFr} />FR
-      </a>
-      <a href={enPath} data-set-lang="en" class:list={['lang-option', { current: lang === 'en' }]} aria-current={lang === 'en' ? 'true' : undefined}>
-        <span class="flag" set:html={FlagEn} />EN
-      </a>
-    </div>
+  <div class="header-top">
+    <h1 class="site-title">Kossi Nelson Galley</h1>
   </div>
 
-  <nav class="main-nav content" aria-label="Navigation">
-    <button class="menu-toggle" id="menu-toggle" aria-label={t('nav.menu')} aria-expanded="false" aria-controls="nav-list">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
-      <span>{t('nav.menu')}</span>
+  <nav class="main-nav">
+    <button class="mobile-menu-toggle" aria-label="Menu" id="mobile-menu-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
     </button>
+
     <ul class="nav-list" id="nav-list">
-      {navItems.map((item) => (
-        <li>
-          <a href={localizePath(item.href, lang)} class:list={['nav-link', { active: isActive(item.href) }]}>
-            {t(item.key)}
-          </a>
-        </li>
-      ))}
+      {navItems.map((item) => {
+        // Adjust nav item link based on current language
+        const isExternal = item.href.startsWith('http');
+        let linkHref: string = item.href;
+        if (!isExternal) {
+           linkHref = lang === 'en' ? (item.href === '/' ? '/en' : `/en${item.href}`) : item.href;
+        }
+        
+        // Simple active check
+        let isActive = false;
+        if (lang === 'en') {
+           isActive = currentPath === '/en' && linkHref === '/en' || (linkHref !== '/en' && currentPath.startsWith(linkHref));
+        } else {
+           isActive = currentPath === '/' && linkHref === '/' || (linkHref !== '/' && currentPath.startsWith(linkHref));
+        }
+
+        return (
+          <li>
+            <a
+              href={linkHref}
+              class:list={['nav-link', { active: isActive }]}
+            >
+              {t(item.key)}
+            </a>
+          </li>
+        );
+      })}
     </ul>
+
+    <div class="lang-switcher">
+      <button class="lang-button" id="lang-btn">
+        <span class="flag" set:html={lang === 'fr' ? FlagFr : FlagEn}></span>
+        <span id="current-lang-text">{lang === 'fr' ? 'Français' : 'English'}</span>
+        <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      
+      <div class="lang-menu" id="lang-menu" style="display: none;">
+        <a href={frPath} class="lang-option">
+          <span class="flag" set:html={FlagFr}></span> Français
+        </a>
+        <a href={enPath} class="lang-option">
+          <span class="flag" set:html={FlagEn}></span> English
+        </a>
+      </div>
+    </div>
   </nav>
 </header>
 
 <script>
-  const toggle = document.getElementById('menu-toggle');
-  const list = document.getElementById('nav-list');
+  // Script for toggling the mobile menu
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const navList = document.getElementById('nav-list');
+  
+  if (mobileMenuBtn && navList) {
+    mobileMenuBtn.addEventListener('click', () => {
+      navList.classList.toggle('show');
+    });
+  }
 
-  if (toggle && list) {
-    toggle.addEventListener('click', () => {
-      const open = list.classList.toggle('show');
-      toggle.setAttribute('aria-expanded', String(open));
+  // Script for toggling the language menu
+  const langBtn = document.getElementById('lang-btn');
+  const langMenu = document.getElementById('lang-menu');
+  
+  if (langBtn && langMenu) {
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isVisible = langMenu.style.display === 'flex';
+      langMenu.style.display = isVisible ? 'none' : 'flex';
+      if (!isVisible) {
+        langMenu.style.flexDirection = 'column';
+      }
+    });
+    
+    // Close language menu when clicking outside
+    document.addEventListener('click', () => {
+      langMenu.style.display = 'none';
     });
   }
 </script>
