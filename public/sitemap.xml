@@ -16,6 +16,7 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- Publications masquées tant qu'il n'y a pas de publication
   <url>
     <loc>https://nels-g.github.io/publications</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://nels-g.github.io/publications" />
@@ -30,6 +31,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nels-g.github.io/publications" />
     <priority>0.8</priority>
   </url>
+  -->
 
   <url>
     <loc>https://nels-g.github.io/talks</loc>
