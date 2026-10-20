@@ -29,7 +29,7 @@ const t = useTranslations(lang);
       {otherRepos.map((repo) => (
         <li>
           <a href={repo.url} target="_blank">{repo.name}</a>
-          {repo.description && <span> — {repo.description[lang]}</span>}
+          {repo.description && <span> - {repo.description[lang]}</span>}
           {repo.language && <span class="repo-language">{repo.language}</span>}
         </li>
       ))}

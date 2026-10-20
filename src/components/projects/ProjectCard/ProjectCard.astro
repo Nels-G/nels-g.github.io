@@ -22,4 +22,7 @@ const t = useTranslations(lang);
   </h3>
   <p class="project-affiliation">{project.affiliation[lang]}</p>
   <p class="project-description">{project.description[lang]}</p>
+  {project.image && (
+    <img class="project-image" src={project.image} alt={project.title[lang]} loading="lazy" decoding="async" />
+  )}
 </article>

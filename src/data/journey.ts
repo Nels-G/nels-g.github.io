@@ -19,16 +19,16 @@ export interface JourneyEntry {
 export const journey: JourneyEntry[] = [
   {
     period: { en: '2022', fr: '2022' },
-    title: { en: 'Scientific Baccalaureate — Series D (Mathematics & Sciences)', fr: 'Baccalauréat Scientifique — Série D (Mathématiques & Sciences)' },
+    title: { en: 'Scientific Baccalaureate - Series D (Mathematics & Sciences)', fr: 'Baccalauréat Scientifique - Série D (Mathématiques & Sciences)' },
     org: { en: 'Collège Protestant de Notsè', fr: 'Collège Protestant de Notsè' },
     location: { en: 'Notsè, Togo', fr: 'Notsè, Togo' },
     category: 'education',
   },
   {
-    period: { en: 'Dec 2022 – 2025', fr: 'Déc. 2022 – 2025' },
+    period: { en: 'Dec 2022 - 2025', fr: 'Déc. 2022 - 2025' },
     title: {
-      en: "Bachelor's in Computer Science, Networks and Telecommunications — Software Architecture",
-      fr: 'Licence en Informatique, Réseau et Télécoms — Option Architecture Logicielle',
+      en: "Bachelor's in Computer Science, Networks and Telecommunications - Software Architecture",
+      fr: 'Licence en Informatique, Réseau et Télécoms - Option Architecture Logicielle',
     },
     org: { en: 'ESGIS TOGO', fr: 'ESGIS TOGO' },
     location: { en: 'Lomé, Togo', fr: 'Lomé, Togo' },
@@ -45,7 +45,7 @@ export const journey: JourneyEntry[] = [
     category: 'milestone',
   },
   {
-    period: { en: 'Oct 2024 – Present', fr: 'Oct. 2024 – Présent' },
+    period: { en: 'Oct 2024 - Present', fr: 'Oct. 2024 - Présent' },
     title: { en: 'Computer Science Teaching Assistant', fr: 'Assistant Pédagogique en Informatique' },
     org: { en: 'ESGIS TOGO · Part-time', fr: 'ESGIS TOGO · Temps partiel' },
     location: { en: 'Lomé, Togo', fr: 'Lomé, Togo' },
@@ -56,7 +56,7 @@ export const journey: JourneyEntry[] = [
     },
   },
   {
-    period: { en: 'Mar 2025 – Feb 2026', fr: 'Mars 2025 – févr. 2026' },
+    period: { en: 'Mar 2025 - Feb 2026', fr: 'Mars 2025 - févr. 2026' },
     title: { en: 'Web Developer & Front-End Lead', fr: 'Développeur Web & Responsable Front-End' },
     org: { en: 'DKOM GROUP · Full-time / Hybrid', fr: 'DKOM GROUP · Temps plein / Hybride' },
     location: { en: 'Lomé, Togo', fr: 'Lomé, Togo' },
@@ -67,7 +67,7 @@ export const journey: JourneyEntry[] = [
     },
   },
   {
-    period: { en: 'May – Dec 2025', fr: 'Mai – déc. 2025' },
+    period: { en: 'May - Dec 2025', fr: 'Mai - déc. 2025' },
     title: { en: 'UX Product Designer', fr: 'UX Product Designer' },
     org: { en: 'Python Togo (PyCon Togo)', fr: 'Python Togo (PyCon Togo)' },
     category: 'volunteer',
@@ -77,7 +77,7 @@ export const journey: JourneyEntry[] = [
     },
   },
   {
-    period: { en: 'Jul 2025 – Present', fr: 'Juil. 2025 – Présent' },
+    period: { en: 'Jul 2025 - Present', fr: 'Juil. 2025 - Présent' },
     title: { en: 'Microsoft Student Ambassador (MSA)', fr: 'Microsoft Student Ambassador (MSA)' },
     org: { en: 'Microsoft', fr: 'Microsoft' },
     category: 'volunteer',
@@ -87,7 +87,7 @@ export const journey: JourneyEntry[] = [
     },
   },
   {
-    period: { en: 'Oct 2025 – Feb 2026', fr: 'Oct. 2025 – févr. 2026' },
+    period: { en: 'Oct 2025 - Feb 2026', fr: 'Oct. 2025 - févr. 2026' },
     title: { en: 'Graphic Design Lead', fr: 'Responsable Design Graphique' },
     org: { en: 'Tech Communities Club (TCC) ESGIS', fr: 'Tech Communities Club (TCC) ESGIS' },
     category: 'volunteer',
@@ -97,7 +97,7 @@ export const journey: JourneyEntry[] = [
     },
   },
   {
-    period: { en: 'Apr 2026 – Present', fr: 'Avr. 2026 – Présent' },
+    period: { en: 'Apr 2026 - Present', fr: 'Avr. 2026 - Présent' },
     title: { en: 'Full Stack Developer', fr: 'Développeur Full Stack' },
     org: { en: 'NANOO STUDIO · Full-time', fr: 'NANOO STUDIO · Temps plein' },
     location: { en: 'Lomé, Togo', fr: 'Lomé, Togo' },
@@ -109,7 +109,7 @@ export const journey: JourneyEntry[] = [
   },
   {
     period: { en: 'Apr 2026', fr: 'Avr. 2026' },
-    title: { en: 'EF SET English Certificate — C1 Advanced (66/100)', fr: 'EF SET English Certificate — C1 Advanced (66/100)' },
+    title: { en: 'EF SET English Certificate - C1 Advanced (66/100)', fr: 'EF SET English Certificate - C1 Advanced (66/100)' },
     org: { en: 'EF SET', fr: 'EF SET' },
     category: 'milestone',
   },
@@ -121,7 +121,7 @@ export const journey: JourneyEntry[] = [
   },
   {
     period: { en: '2026', fr: '2026' },
-    title: { en: '1st Place — TOGO CODE RUN Design Challenge', fr: '1ère Place — TOGO CODE RUN Design Challenge' },
+    title: { en: '1st Place - TOGO CODE RUN Design Challenge', fr: '1ère Place - TOGO CODE RUN Design Challenge' },
     org: { en: 'TOGO CODE RUN', fr: 'TOGO CODE RUN' },
     category: 'milestone',
   },

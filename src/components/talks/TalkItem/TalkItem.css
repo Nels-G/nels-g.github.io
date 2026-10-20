@@ -40,6 +40,7 @@
 }
 .talk-content {
   padding-left: 2rem;
+  min-width: 0;
 }
 .talk-type {
   display: inline-block;
@@ -62,6 +63,26 @@
   font-family: var(--font-lora);
   font-size: 0.88rem;
   color: var(--color-text-secondary);
+}
+.talk-link {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-family: var(--font-urbanist);
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+.talk-image {
+  display: block;
+  margin-top: 0.75rem;
+  width: 220px;
+  max-width: 100%;
+}
+.talk-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
 }
 
 @media (max-width: 600px) {

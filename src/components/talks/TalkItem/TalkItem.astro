@@ -11,10 +11,18 @@ const { talk, lang } = Astro.props;
 ---
 
 <div class="talk-item">
-  <div class="talk-date">{talk.date}</div>
+  <div class="talk-date">{talk.date[lang]}</div>
   <div class="talk-content">
     <span class="talk-type">{talk.type[lang]}</span>
     <h3 class="talk-title">{talk.title[lang]}</h3>
     <p class="talk-meta">{talk.event[lang]} · {talk.location[lang]}</p>
+    {talk.url && talk.urlLabel && (
+      <a class="talk-link" href={talk.url} target="_blank">{talk.urlLabel[lang]} ↗</a>
+    )}
+    {talk.image && (
+      <a class="talk-image" href={talk.image} target="_blank">
+        <img src={talk.image} alt={talk.title[lang]} loading="lazy" decoding="async" />
+      </a>
+    )}
   </div>
 </div>
