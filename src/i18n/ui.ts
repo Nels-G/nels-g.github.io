@@ -19,10 +19,10 @@ export const ui = {
 
     'bio.badge': 'Biographie',
     'bio.title': 'Candidat au Master 1 Informatique · Licence en Architecture Logicielle',
-    'bio.p1': 'Je suis <strong>titulaire d\'une licence en Informatique, Réseau et Télécoms, option Architecture Logicielle</strong>, obtenue à l\'<a href="https://www.esgis.org" target="_blank">ESGIS Togo</a> à Lomé (cursus LMD validé intégralement : 180/180 crédits ECTS). Candidat au Master 1 Informatique, je souhaite approfondir mes compétences en conception de systèmes logiciels, génie logiciel et architectures applicatives.',
-    'bio.p2': 'Je travaille comme <strong>Développeur Full Stack</strong> chez NANOO STUDIO à Lomé, où je conçois et développe des applications web scalables (Next.js, React.js, Node.js) avec PostgreSQL et Supabase. Depuis octobre 2024, je suis également <strong>assistant pédagogique en informatique</strong> à l\'ESGIS, où j\'encadre les TD et TP en algorithmique, programmation C et modélisation/SQL. Auparavant, j\'ai été Développeur Web & Responsable Front-End chez DKOM GROUP.',
-    'bio.p3': 'Mes projets personnels portent sur la <strong>vision par ordinateur, l\'intelligence artificielle et l\'interaction homme-machine</strong> : un modèle de détection précoce des maladies des cultures maraîchères à partir d\'une image, <a href="https://github.com/Nels-G/VisionSlide" target="_blank">VisionSlide</a>, un système de contrôle de présentations PowerPoint par gestes de la main, et DocSchool, une plateforme de ressources académiques intégrant un assistant IA.',
-    'bio.p4': 'Engagé dans la communauté tech, je suis <strong>Microsoft Student Ambassador</strong> depuis juillet 2025, j\'anime régulièrement des conférences et ateliers, et j\'ai remporté la 1ère place du TOGO CODE RUN Design Challenge en 2026. Je souhaite renforcer mes connaissances en conception de systèmes évolutifs, qualité logicielle et ingénierie des applications.',
+    'bio.p1': 'Kossi Nelson GALLEY est <strong>titulaire d\'une licence en Informatique, Réseau et Télécoms, option Architecture Logicielle</strong>, obtenue à l\'<a href="https://www.esgis.org" target="_blank">ESGIS Togo</a> à Lomé (cursus LMD validé intégralement : 180/180 crédits ECTS). Candidat au Master 1 Informatique, il souhaite approfondir ses compétences en conception de systèmes logiciels, génie logiciel et architectures applicatives.',
+    'bio.p2': 'Il exerce comme <strong>Développeur Full Stack</strong> chez NANOO STUDIO à Lomé, où il conçoit et développe des applications web scalables (Next.js, React.js, Node.js) avec PostgreSQL et Supabase. Depuis octobre 2024, il est également <strong>assistant pédagogique en informatique</strong> à l\'ESGIS, où il encadre les TD et TP en algorithmique, programmation C et modélisation/SQL. Auparavant, il a été Développeur Web & Responsable Front-End chez DKOM GROUP.',
+    'bio.p3': 'Ses projets personnels portent sur la <strong>vision par ordinateur, l\'intelligence artificielle et l\'interaction homme-machine</strong> : un modèle de détection précoce des maladies des cultures maraîchères à partir d\'une image, <a href="https://github.com/Nels-G/VisionSlide" target="_blank">VisionSlide</a>, un système de contrôle de présentations PowerPoint par gestes de la main, et DocSchool, une plateforme de ressources académiques intégrant un assistant IA.',
+    'bio.p4': 'Engagé dans la communauté tech, il est <strong>Microsoft Student Ambassador</strong> depuis juillet 2025 et anime régulièrement des conférences et ateliers, notamment une keynote au DevFest 2025 des Google Developer Groups. Il a remporté la 1ère place du TOGO CODE RUN Design Challenge en 2026 et souhaite renforcer ses connaissances en conception de systèmes évolutifs, qualité logicielle et ingénierie des applications.',
 
     'research.badge': 'Axes de recherche',
     'research.item1': 'Génie Logiciel',
@@ -33,15 +33,15 @@ export const ui = {
 
     'publications.badge': 'Publications',
     'publications.title': 'Publications',
-    'publications.intro': 'Je n\'ai pas encore de publication. Cette page sera complétée au fil de mes travaux de recherche.',
+    'publications.intro': 'Aucune publication pour le moment. Cette page sera complétée au fil de ses travaux de recherche.',
 
     'talks.badge': 'Conférences',
     'talks.title': 'Conférences & Présentations',
-    'talks.intro': 'Conférences, ateliers, formations et lives que j\'ai animés, en présentiel et en ligne.',
+    'talks.intro': 'Conférences, ateliers, formations et lives animés par Nelson Galley, en présentiel et en ligne.',
 
     'projects.badge': 'Projets',
     'projects.title': 'Projets',
-    'projects.intro': 'Une sélection de mes projets personnels en vision par ordinateur, interaction homme-machine et développement logiciel. D\'autres travaux sont disponibles sur mon <a href="https://github.com/Nels-G" target="_blank">GitHub</a>.',
+    'projects.intro': 'Une sélection de projets personnels en vision par ordinateur, interaction homme-machine et développement logiciel. D\'autres travaux sont disponibles sur <a href="https://github.com/Nels-G" target="_blank">GitHub</a>.',
     'projects.moreOnGithub': 'Plus sur GitHub',
     'projects.category.AI': 'IA',
     'projects.category.HCI': 'IHM',
@@ -49,7 +49,7 @@ export const ui = {
 
     'teaching.badge': 'Enseignement',
     'teaching.title': 'Enseignement',
-    'teaching.intro': 'Depuis octobre 2024, je suis <strong>assistant pédagogique en informatique</strong> (temps partiel) à l\'<a href="https://www.esgis.org" target="_blank">ESGIS</a>, à Lomé, au Togo, où j\'encadre les TD et TP des étudiants de Licence 1 et 2.',
+    'teaching.intro': 'Depuis octobre 2024, Kossi Nelson Galley est <strong>assistant pédagogique en informatique</strong> (temps partiel) à l\'<a href="https://www.esgis.org" target="_blank">ESGIS</a>, à Lomé, au Togo, où il encadre les TD et TP des étudiants de Licence 1 et 2.',
     'teaching.areasHeading': "Domaines d'enseignement",
     'teaching.area1': 'Algorithmique',
     'teaching.area2': 'Programmation C',
@@ -57,11 +57,11 @@ export const ui = {
     'teaching.area4': 'SQL',
     'teaching.area5': 'Bases de données (MySQL, phpMyAdmin)',
     'teaching.approachHeading': 'Rôle',
-    'teaching.text': "J'anime des séances pratiques en algorithmique, programmation C et modélisation/SQL, j'évalue les travaux pratiques et je transmets les bonnes pratiques de code aux étudiants.",
+    'teaching.text': "Il anime des séances pratiques en algorithmique, programmation C et modélisation/SQL, évalue les travaux pratiques et transmet les bonnes pratiques de code aux étudiants.",
 
     'journey.badge': 'Parcours',
     'journey.title': 'Parcours',
-    'journey.intro': "De ma licence en Architecture Logicielle à l'ESGIS au développement full stack, à l'enseignement et à l'engagement communautaire - un parcours qui me mène aujourd'hui vers un Master en Informatique.",
+    'journey.intro': "De la licence en Architecture Logicielle à l'ESGIS au développement full stack, à l'enseignement et à l'engagement communautaire - un parcours qui mène aujourd'hui vers un Master en Informatique.",
     'journey.category.education': 'Formation',
     'journey.category.experience': 'Expérience',
     'journey.category.volunteer': 'Bénévolat',
@@ -80,10 +80,10 @@ export const ui = {
 
     'bio.badge': 'Biography',
     'bio.title': "Master's Candidate in Computer Science · Bachelor's in Software Architecture",
-    'bio.p1': 'I hold a <strong>Bachelor\'s degree in Computer Science, Networks and Telecommunications, majoring in Software Architecture</strong>, from <a href="https://www.esgis.org" target="_blank">ESGIS Togo</a> in Lomé (LMD programme fully completed: 180/180 ECTS credits). As a candidate for a Master\'s (M1) in Computer Science, I aim to deepen my skills in software system design, software engineering and application architectures.',
-    'bio.p2': 'I work as a <strong>Full Stack Developer</strong> at NANOO STUDIO in Lomé, where I design and build scalable web applications (Next.js, React.js, Node.js) with PostgreSQL and Supabase. Since October 2024, I have also been a <strong>Computer Science Teaching Assistant</strong> at ESGIS, supervising tutorials and lab sessions in algorithms, C programming and data modelling/SQL. I previously served as Web Developer & Front-End Lead at DKOM GROUP.',
-    'bio.p3': 'My personal projects focus on <strong>computer vision, artificial intelligence and human-computer interaction</strong>: a model for the early detection of vegetable crop diseases from a single image, <a href="https://github.com/Nels-G/VisionSlide" target="_blank">VisionSlide</a>, a system for controlling PowerPoint presentations with hand gestures, and DocSchool, an academic resource platform with an AI assistant.',
-    'bio.p4': 'Active in the tech community, I have been a <strong>Microsoft Student Ambassador</strong> since July 2025, I regularly lead talks and workshops, and I won 1st place in the TOGO CODE RUN Design Challenge in 2026. I want to strengthen my knowledge of scalable system design, software quality and application engineering.',
+    'bio.p1': 'Kossi Nelson GALLEY holds a <strong>Bachelor\'s degree in Computer Science, Networks and Telecommunications, majoring in Software Architecture</strong>, from <a href="https://www.esgis.org" target="_blank">ESGIS Togo</a> in Lomé (LMD programme fully completed: 180/180 ECTS credits). A candidate for a Master\'s (M1) in Computer Science, he aims to deepen his skills in software system design, software engineering and application architectures.',
+    'bio.p2': 'He works as a <strong>Full Stack Developer</strong> at NANOO STUDIO in Lomé, where he designs and builds scalable web applications (Next.js, React.js, Node.js) with PostgreSQL and Supabase. Since October 2024, he has also been a <strong>Computer Science Teaching Assistant</strong> at ESGIS, supervising tutorials and lab sessions in algorithms, C programming and data modelling/SQL. He previously served as Web Developer & Front-End Lead at DKOM GROUP.',
+    'bio.p3': 'His personal projects focus on <strong>computer vision, artificial intelligence and human-computer interaction</strong>: a model for the early detection of vegetable crop diseases from a single image, <a href="https://github.com/Nels-G/VisionSlide" target="_blank">VisionSlide</a>, a system for controlling PowerPoint presentations with hand gestures, and DocSchool, an academic resource platform with an AI assistant.',
+    'bio.p4': 'Active in the tech community, he has been a <strong>Microsoft Student Ambassador</strong> since July 2025 and regularly leads talks and workshops, including a keynote at Google Developer Groups DevFest 2025. He won 1st place in the TOGO CODE RUN Design Challenge in 2026 and wants to strengthen his knowledge of scalable system design, software quality and application engineering.',
 
     'research.badge': 'Research Interest',
     'research.item1': 'Software Engineering',
@@ -94,15 +94,15 @@ export const ui = {
 
     'publications.badge': 'Publications',
     'publications.title': 'Publications',
-    'publications.intro': 'I do not have any publications yet. This page will be updated as my research work progresses.',
+    'publications.intro': 'No publications yet. This page will be updated as his research work progresses.',
 
     'talks.badge': 'Talks',
     'talks.title': 'Talks & Presentations',
-    'talks.intro': 'Talks, workshops, training sessions and live sessions I have led, in person and online.',
+    'talks.intro': 'Talks, workshops, training sessions and live sessions led by Nelson Galley, in person and online.',
 
     'projects.badge': 'Projects',
     'projects.title': 'Projects',
-    'projects.intro': 'A selection of my personal projects in computer vision, human-computer interaction and software development. More of my work is available on <a href="https://github.com/Nels-G" target="_blank">GitHub</a>.',
+    'projects.intro': 'A selection of personal projects in computer vision, human-computer interaction and software development. More work is available on <a href="https://github.com/Nels-G" target="_blank">GitHub</a>.',
     'projects.moreOnGithub': 'More on GitHub',
     'projects.category.AI': 'AI',
     'projects.category.HCI': 'HCI',
@@ -110,7 +110,7 @@ export const ui = {
 
     'teaching.badge': 'Teaching',
     'teaching.title': 'Teaching',
-    'teaching.intro': 'Since October 2024, I have served as a part-time <strong>Computer Science Teaching Assistant</strong> at <a href="https://www.esgis.org" target="_blank">ESGIS</a> in Lomé, Togo, supervising tutorials and lab sessions for first- and second-year undergraduate students.',
+    'teaching.intro': 'Since October 2024, Kossi Nelson Galley has served as a part-time <strong>Computer Science Teaching Assistant</strong> at <a href="https://www.esgis.org" target="_blank">ESGIS</a> in Lomé, Togo, supervising tutorials and lab sessions for first- and second-year undergraduate students.',
     'teaching.areasHeading': 'Teaching Areas',
     'teaching.area1': 'Algorithms',
     'teaching.area2': 'C Programming',
@@ -118,11 +118,11 @@ export const ui = {
     'teaching.area4': 'SQL',
     'teaching.area5': 'Databases (MySQL, phpMyAdmin)',
     'teaching.approachHeading': 'Role',
-    'teaching.text': 'I lead hands-on sessions in algorithms, C programming and data modelling/SQL, assess lab work and teach good coding practices to students.',
+    'teaching.text': 'He leads hands-on sessions in algorithms, C programming and data modelling/SQL, assesses lab work and teaches good coding practices to students.',
 
     'journey.badge': 'Journey',
     'journey.title': 'Journey',
-    'journey.intro': "From my Bachelor's in Software Architecture at ESGIS to full stack development, teaching and community involvement - a path now leading me towards a Master's in Computer Science.",
+    'journey.intro': "From a Bachelor's in Software Architecture at ESGIS to full stack development, teaching and community involvement - a path now leading towards a Master's in Computer Science.",
     'journey.category.education': 'Education',
     'journey.category.experience': 'Experience',
     'journey.category.volunteer': 'Volunteering',
