@@ -16,7 +16,6 @@ export interface Talk {
 
 const online = { fr: 'En ligne', en: 'Online' };
 const esgis = { fr: 'ESGIS TOGO, Adidogomé, Lomé', en: 'ESGIS TOGO, Adidogomé, Lomé' };
-const eventPage = { fr: "Page de l'événement", en: 'Event page' };
 
 // Du plus récent au plus ancien. Ajouter uniquement des événements confirmés.
 export const talks: Talk[] = [
@@ -36,32 +35,6 @@ export const talks: Talk[] = [
   },
   {
     title: {
-      fr: 'Comment devenir un designer compétent et rentable en étant étudiant ?',
-      en: 'How to Become a Skilled and Profitable Designer as a Student',
-    },
-    event: { fr: 'Tech Campus Club ESGIS', en: 'Tech Campus Club ESGIS' },
-    type: { fr: 'Conférence', en: 'Talk' },
-    location: esgis,
-    date: { fr: '27 mars 2026', en: 'Mar 27, 2026' },
-    url: 'https://tcc.hyver.org/e/comment-devenir-un-designer-competent-et-rentable-en-etant-etudiant',
-    urlLabel: eventPage,
-    image: '/images/talks/designer-etudiant-tcc-2026.jpg',
-  },
-  {
-    title: {
-      fr: 'Créer un portfolio qui ouvre de vraies portes',
-      en: 'Building a Portfolio That Opens Real Doors',
-    },
-    event: { fr: 'Tech Campus Club ESGIS', en: 'Tech Campus Club ESGIS' },
-    type: { fr: 'Conférence', en: 'Talk' },
-    location: { fr: 'En ligne (Google Meet)', en: 'Online (Google Meet)' },
-    date: { fr: '30 janv. 2026', en: 'Jan 30, 2026' },
-    url: 'https://tcc.hyver.org/e/creer-son-portfolio-qui-ouvre-des-portes',
-    urlLabel: eventPage,
-    image: '/images/talks/portfolio-tcc-2026.jpg',
-  },
-  {
-    title: {
       fr: "Intégrer un modèle d'IA dans vos projets sans budget initial",
       en: 'Integrating an AI Model into Your Projects with No Initial Budget',
     },
@@ -75,17 +48,6 @@ export const talks: Talk[] = [
     url: 'https://docs.google.com/presentation/d/19R-HOakFMvj5ip4wDlh3ATOiStBpfpVNCGkDV9L0D58/edit?usp=sharing',
     urlLabel: { fr: 'Voir la présentation', en: 'View slides' },
     image: '/images/talks/ia-sans-budget-unipod-2025.jpg',
-  },
-  {
-    title: {
-      fr: 'Challenge personnel : je crée ma première affiche avec Figma',
-      en: 'Personal Challenge: Designing My First Poster in Figma',
-    },
-    event: { fr: 'Live', en: 'Live session' },
-    type: { fr: 'Live', en: 'Live' },
-    location: online,
-    date: { fr: '08 nov. 2025', en: 'Nov 8, 2025' },
-    image: '/images/talks/figma-live-2025.jpg',
   },
   {
     title: {
