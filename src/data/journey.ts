@@ -34,8 +34,8 @@ export const journey: JourneyEntry[] = [
     location: { en: 'Lomé, Togo', fr: 'Lomé, Togo' },
     category: 'education',
     description: {
-      en: 'LMD programme fully completed: 180/180 ECTS credits. Key areas: advanced algorithms, C/C++/OOP programming, software engineering, modelling (UML, MERISE), database architecture (Oracle, SQL Server, NoSQL), security & cryptography, graph theory.',
-      fr: 'Cursus LMD validé intégralement : 180/180 crédits ECTS. Domaines clés : algorithmique avancée, programmation C/C++/POO, génie logiciel, modélisation (UML, MERISE), architecture des bases de données (Oracle, SQL Server, NoSQL), sécurité & cryptographie, théorie des graphes.',
+      en: 'LMD programme fully completed: 180/180 ECTS credits. Key areas: advanced algorithms, data structures, C/C++/OOP programming, modelling (UML, MERISE), database architecture (Oracle, SQL Server, NoSQL), security & cryptography, graph theory.',
+      fr: 'Cursus LMD validé intégralement : 180/180 crédits ECTS. Domaines clés : algorithmique avancée, structures de données, programmation C/C++/POO, modélisation (UML, MERISE), architecture des bases de données (Oracle, SQL Server, NoSQL), sécurité & cryptographie, théorie des graphes.',
     },
   },
   {
@@ -62,8 +62,8 @@ export const journey: JourneyEntry[] = [
     location: { en: 'Lomé, Togo', fr: 'Lomé, Togo' },
     category: 'experience',
     description: {
-      en: 'Progressed from a 3-month internship to a front-end leadership role within the technical team. Built interfaces with React.js and integrated them with a Django / PostgreSQL backend via REST APIs. Led version control (Git) and kept design and implementation consistent.',
-      fr: "Évolution d'un stage de 3 mois vers un poste de responsabilité front-end au sein de l'équipe technique. Développement des interfaces avec React.js et intégration avec un backend Django / PostgreSQL via API REST. Pilotage du versionnement (Git) et cohérence design-intégration.",
+      en: 'Progressed from a 3-month professional internship to a front-end lead role. Set up the front-end architecture and built reusable components for the TAHAGA and Lizpack projects. Developed reactive interfaces (React.js) and integrated them with the backend (Django / PostgreSQL via REST API).',
+      fr: "Évolution d'un stage professionnel de 3 mois vers un poste de responsable front-end. Mise en place de l'architecture front-end et création de composants réutilisables pour les projets TAHAGA et Lizpack. Développement des interfaces réactives (React.js) et intégration backend (Django / PostgreSQL via API REST).",
     },
   },
   {
@@ -103,8 +103,8 @@ export const journey: JourneyEntry[] = [
     location: { en: 'Lomé, Togo', fr: 'Lomé, Togo' },
     category: 'experience',
     description: {
-      en: 'Design and development of scalable web applications (Next.js, React.js, Node.js). Data flow modelling and management with PostgreSQL and Supabase. Prototyping of modern, usability-focused interfaces in Figma.',
-      fr: "Conception et développement d'applications web scalables (Next.js, React.js, Node.js). Modélisation et gestion des flux de données avec PostgreSQL et Supabase. Prototypage d'interfaces modernes sur Figma, centrées sur l'ergonomie.",
+      en: 'Design and development of scalable web applications with Next.js, React.js and Node.js. Database modelling and data flow management with PostgreSQL and Supabase. User flow (UX) design and prototyping of modern, usability-focused interfaces in Figma. Deployment and continuous hosting of applications with Dokploy.',
+      fr: "Conception et développement d'applications web scalables avec Next.js, React.js et Node.js. Modélisation de la base de données et gestion des flux avec PostgreSQL et Supabase. Conception des flux utilisateurs (UX) et prototypage d'interfaces modernes centrées sur l'ergonomie avec Figma. Gestion du déploiement et de l'hébergement continu des applications via Dokploy.",
     },
   },
   {

@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = "Kossi Nelson Galley - Candidat au Master 1 Informatique, Lomé, Togo",
+  description = "Kossi Nelson Galley - Développeur d'Applications, Lomé, Togo",
   image = '/images/nelson-photo.jpg',
 } = Astro.props;
 const lang = (Astro.currentLocale ?? 'fr') as 'fr' | 'en';
@@ -29,11 +29,11 @@ const personSchema = {
   '@type': 'Person',
   name: 'Kossi Nelson Galley',
   alternateName: 'Nelson Galley',
-  jobTitle: lang === 'fr' ? 'Candidat au Master 1 Informatique' : "Master's Candidate in Computer Science",
+  jobTitle: lang === 'fr' ? "Développeur d'Applications" : 'Application Developer',
   description:
     lang === 'fr'
-      ? "Titulaire d'une licence en Architecture Logicielle (ESGIS Togo), candidat au Master 1 Informatique : génie logiciel, vision par ordinateur et interaction homme-machine."
-      : "Bachelor's in Software Architecture (ESGIS Togo) and Master's candidate in Computer Science: software engineering, computer vision and human-computer interaction.",
+      ? "Titulaire d'une licence en Architecture Logicielle (ESGIS Togo), développeur d'applications orienté génie logiciel et intégration de modèles d'IA."
+      : "Bachelor's in Software Architecture (ESGIS Togo), application developer focused on software engineering and AI model integration.",
   url: Astro.site?.href,
   image: ogImageURL.href,
   nationality: { '@type': 'Country', name: 'Togo' },
