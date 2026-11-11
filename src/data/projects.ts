@@ -49,6 +49,7 @@ export const projects: Project[] = [
       fr: 'Plateforme de gestion et de partage de ressources académiques intégrant un assistant interactif (Chat IA) pour accompagner les étudiants. Technologies : React, Django, PostgreSQL, REST API, GroqCloud API.',
     },
     url: 'https://github.com/Nels-G/DocSchool',
+    image: '/images/projects/docschool.jpg',
   },
 ];
 

@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = "Kossi Nelson Galley - Développeur d'Applications, Lomé, Togo",
+  description = "Kossi Nelson GALLEY - Développeur d'Applications, Lomé, Togo",
   image = '/images/nelson-photo.jpg',
 } = Astro.props;
 const lang = (Astro.currentLocale ?? 'fr') as 'fr' | 'en';
@@ -27,8 +27,8 @@ const ogLocaleAlternate = lang === 'fr' ? 'en_US' : 'fr_FR';
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Kossi Nelson Galley',
-  alternateName: 'Nelson Galley',
+  name: 'Kossi Nelson GALLEY',
+  alternateName: 'Nelson GALLEY',
   jobTitle: lang === 'fr' ? "Développeur d'Applications" : 'Application Developer',
   description:
     lang === 'fr'
@@ -69,14 +69,14 @@ const personSchema = {
     <title>{title}</title>
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Kossi Nelson Galley" />
+    <meta property="og:site_name" content="Kossi Nelson GALLEY" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:image:width" content="1080" />
     <meta property="og:image:height" content="1080" />
-    <meta property="og:image:alt" content="Kossi Nelson Galley" />
+    <meta property="og:image:alt" content="Kossi Nelson GALLEY" />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:locale:alternate" content={ogLocaleAlternate} />
 
