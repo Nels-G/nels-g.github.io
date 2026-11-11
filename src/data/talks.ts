@@ -15,7 +15,7 @@ export interface Talk {
 }
 
 const online = { fr: 'En ligne', en: 'Online' };
-const esgis = { fr: 'ESGIS TOGO, Adidogomé, Lomé', en: 'ESGIS TOGO, Adidogomé, Lomé' };
+const esgis = { fr: 'ESGIS Togo, Adidogomé, Lomé', en: 'ESGIS Togo, Adidogomé, Lomé' };
 
 // Du plus récent au plus ancien. Ajouter uniquement des événements confirmés.
 export const talks: Talk[] = [

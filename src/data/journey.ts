@@ -30,7 +30,7 @@ export const journey: JourneyEntry[] = [
       en: "Bachelor's in Computer Science, Networks and Telecommunications - Software Architecture",
       fr: 'Licence en Informatique, Réseau et Télécoms - Option Architecture Logicielle',
     },
-    org: { en: 'ESGIS TOGO', fr: 'ESGIS TOGO' },
+    org: { en: 'ESGIS Togo', fr: 'ESGIS Togo' },
     location: { en: 'Lomé, Togo', fr: 'Lomé, Togo' },
     category: 'education',
     description: {
@@ -47,7 +47,7 @@ export const journey: JourneyEntry[] = [
   {
     period: { en: 'Oct 2024 - Present', fr: 'Oct. 2024 - Présent' },
     title: { en: 'Computer Science Teaching Assistant', fr: 'Assistant Pédagogique en Informatique' },
-    org: { en: 'ESGIS TOGO · Part-time', fr: 'ESGIS TOGO · Temps partiel' },
+    org: { en: 'ESGIS Togo · Part-time', fr: 'ESGIS Togo · Temps partiel' },
     location: { en: 'Lomé, Togo', fr: 'Lomé, Togo' },
     category: 'experience',
     description: {

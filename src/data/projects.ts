@@ -55,7 +55,7 @@ export const projects: Project[] = [
     title: { en: 'DocSchool - Final Year Project', fr: "DocSchool - Projet de Fin d'Études (PFE)" },
     category: 'Software',
     period: { en: '2025', fr: '2025' },
-    affiliation: { en: 'ESGIS TOGO', fr: 'ESGIS TOGO' },
+    affiliation: { en: 'ESGIS Togo', fr: 'ESGIS Togo' },
     description: {
       en: 'Platform for managing and sharing academic resources, featuring an interactive assistant (AI chat) to support students. Technologies: React, Django, PostgreSQL, REST API, GroqCloud API.',
       fr: 'Plateforme de gestion et de partage de ressources académiques intégrant un assistant interactif (Chat IA) pour accompagner les étudiants. Technologies : React, Django, PostgreSQL, REST API, GroqCloud API.',

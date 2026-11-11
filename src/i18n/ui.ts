@@ -20,7 +20,7 @@ export const ui = {
     'bio.badge': 'Biographie',
     'bio.title': "Développeur d'Applications · Licence en Architecture Logicielle",
     'bio.p1': '<strong>Titulaire d\'une Licence en Informatique, Réseau et Télécoms, option Architecture Logicielle</strong>, obtenue à l\'<a href="https://www.esgis.org" target="_blank">ESGIS Togo</a> à Lomé (cursus LMD validé intégralement : 180/180 crédits ECTS). Objectif : poursuivre des études en Informatique pour devenir <strong>Ingénieur Logiciel spécialisé dans l\'intégration de modèles d\'Intelligence Artificielle</strong>.',
-    'bio.p2': '<strong>Développeur Full Stack</strong> chez NANOO STUDIO à Lomé : conception d\'applications web scalables (Next.js, React.js, Node.js), modélisation des bases de données avec PostgreSQL et Supabase, et déploiement continu via Dokploy. Auparavant Développeur Web & Responsable Front-End chez DKOM GROUP, avec la mise en place de l\'architecture front-end des projets TAHAGA et Lizpack. <strong>Assistant pédagogique en informatique</strong> à l\'ESGIS depuis octobre 2024 : encadrement des TD et TP en algorithmique, programmation C et modélisation/SQL.',
+    'bio.p2': '<strong>Développeur Full Stack</strong> chez NANOO STUDIO à Lomé : conception d\'applications web scalables (Next.js, React.js, Node.js), modélisation des bases de données avec PostgreSQL et Supabase, et déploiement continu via Dokploy. Auparavant Développeur Web & Responsable Front-End chez DKOM GROUP, avec la mise en place de l\'architecture front-end des projets TAHAGA et Lizpack. <strong>Assistant pédagogique en informatique</strong> à l\'ESGIS Togo depuis octobre 2024 : encadrement des TD et TP en algorithmique, programmation C et modélisation/SQL.',
     'bio.p3': 'Projets personnels autour de la <strong>vision par ordinateur, de l\'intelligence artificielle et de l\'interaction homme-machine</strong> : un modèle de détection précoce des maladies des cultures maraîchères à partir d\'une image, <a href="https://github.com/Nels-G/VisionSlide" target="_blank">VisionSlide</a>, un système de contrôle de présentations PowerPoint par gestes de la main, et DocSchool, une plateforme de ressources académiques intégrant un assistant IA.',
     'bio.p4': 'Un parcours qui associe rigueur méthodologique, tutorat universitaire et développement de projets full-stack, appuyé sur des compétences en modélisation (UML), algorithmique et bases de données relationnelles et distribuées. Projet académique : maîtriser la conception d\'architectures robustes capables d\'embarquer et de déployer des solutions d\'IA à l\'échelle. <strong>Microsoft Student Ambassador</strong> depuis juillet 2025, speaker lors de conférences et d\'ateliers (dont une keynote au DevFest 2025 des Google Developer Groups) et lauréat de la 1ère place du TOGO CODE RUN Design Challenge en 2026.',
 
@@ -49,7 +49,7 @@ export const ui = {
 
     'teaching.badge': 'Enseignement',
     'teaching.title': 'Enseignement',
-    'teaching.intro': '<strong>Assistant pédagogique en informatique</strong> (temps partiel) à l\'<a href="https://www.esgis.org" target="_blank">ESGIS</a>, à Lomé, au Togo, depuis octobre 2024 : encadrement des TD et TP des étudiants de Licence 1 et 2.',
+    'teaching.intro': '<strong>Assistant pédagogique en informatique</strong> (temps partiel) à l\'<a href="https://www.esgis.org" target="_blank">ESGIS Togo</a>, à Lomé, depuis octobre 2024 : encadrement des TD et TP des étudiants de Licence 1 et 2.',
     'teaching.areasHeading': "Domaines d'enseignement",
     'teaching.area1': 'Algorithmique',
     'teaching.area2': 'Programmation C',
@@ -64,7 +64,7 @@ export const ui = {
 
     'journey.badge': 'Parcours',
     'journey.title': 'Parcours',
-    'journey.intro': "De la licence en Architecture Logicielle à l'ESGIS au développement full stack, à l'enseignement et à l'engagement communautaire - un parcours orienté vers l'ingénierie logicielle et l'intégration de modèles d'Intelligence Artificielle.",
+    'journey.intro': "De la licence en Architecture Logicielle à l'ESGIS Togo au développement full stack, à l'enseignement et à l'engagement communautaire - un parcours orienté vers l'ingénierie logicielle et l'intégration de modèles d'Intelligence Artificielle.",
     'journey.category.education': 'Formation',
     'journey.category.experience': 'Expérience',
     'journey.category.volunteer': 'Bénévolat',
@@ -84,7 +84,7 @@ export const ui = {
     'bio.badge': 'Biography',
     'bio.title': "Application Developer · Bachelor's in Software Architecture",
     'bio.p1': '<strong>Bachelor\'s degree in Computer Science, Networks and Telecommunications, majoring in Software Architecture</strong>, from <a href="https://www.esgis.org" target="_blank">ESGIS Togo</a> in Lomé (LMD programme fully completed: 180/180 ECTS credits). Goal: to pursue further studies in Computer Science and become a <strong>Software Engineer specialised in integrating Artificial Intelligence models</strong>.',
-    'bio.p2': '<strong>Full Stack Developer</strong> at NANOO STUDIO in Lomé: design of scalable web applications (Next.js, React.js, Node.js), database modelling with PostgreSQL and Supabase, and continuous deployment with Dokploy. Previously Web Developer & Front-End Lead at DKOM GROUP, setting up the front-end architecture of the TAHAGA and Lizpack projects. <strong>Computer Science Teaching Assistant</strong> at ESGIS since October 2024: supervision of tutorials and lab sessions in algorithms, C programming and data modelling/SQL.',
+    'bio.p2': '<strong>Full Stack Developer</strong> at NANOO STUDIO in Lomé: design of scalable web applications (Next.js, React.js, Node.js), database modelling with PostgreSQL and Supabase, and continuous deployment with Dokploy. Previously Web Developer & Front-End Lead at DKOM GROUP, setting up the front-end architecture of the TAHAGA and Lizpack projects. <strong>Computer Science Teaching Assistant</strong> at ESGIS Togo since October 2024: supervision of tutorials and lab sessions in algorithms, C programming and data modelling/SQL.',
     'bio.p3': 'Personal projects in <strong>computer vision, artificial intelligence and human-computer interaction</strong>: a model for the early detection of vegetable crop diseases from a single image, <a href="https://github.com/Nels-G/VisionSlide" target="_blank">VisionSlide</a>, a system for controlling PowerPoint presentations with hand gestures, and DocSchool, an academic resource platform with an AI assistant.',
     'bio.p4': 'A path combining methodological rigour, university tutoring and full-stack project development, built on skills in modelling (UML), algorithms and relational and distributed databases. Academic goal: to master the design of robust architectures able to embed and deploy AI solutions at scale. <strong>Microsoft Student Ambassador</strong> since July 2025, speaker at talks and workshops (including a keynote at Google Developer Groups DevFest 2025) and winner of 1st place in the TOGO CODE RUN Design Challenge in 2026.',
 
@@ -113,7 +113,7 @@ export const ui = {
 
     'teaching.badge': 'Teaching',
     'teaching.title': 'Teaching',
-    'teaching.intro': 'Part-time <strong>Computer Science Teaching Assistant</strong> at <a href="https://www.esgis.org" target="_blank">ESGIS</a> in Lomé, Togo, since October 2024: supervision of tutorials and lab sessions for first- and second-year undergraduate students.',
+    'teaching.intro': 'Part-time <strong>Computer Science Teaching Assistant</strong> at <a href="https://www.esgis.org" target="_blank">ESGIS Togo</a> in Lomé, since October 2024: supervision of tutorials and lab sessions for first- and second-year undergraduate students.',
     'teaching.areasHeading': 'Teaching Areas',
     'teaching.area1': 'Algorithms',
     'teaching.area2': 'C Programming',
@@ -128,7 +128,7 @@ export const ui = {
 
     'journey.badge': 'Journey',
     'journey.title': 'Journey',
-    'journey.intro': "From a Bachelor's in Software Architecture at ESGIS to full stack development, teaching and community involvement - a path focused on software engineering and the integration of Artificial Intelligence models.",
+    'journey.intro': "From a Bachelor's in Software Architecture at ESGIS Togo to full stack development, teaching and community involvement - a path focused on software engineering and the integration of Artificial Intelligence models.",
     'journey.category.education': 'Education',
     'journey.category.experience': 'Experience',
     'journey.category.volunteer': 'Volunteering',
