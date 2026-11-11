@@ -21,6 +21,18 @@
   box-sizing: border-box;
 }
 
+/* Taille de base agrandie pour le confort de lecture (16px -> 18px) :
+   toutes les tailles en rem suivent proportionnellement. */
+html {
+  font-size: 112.5%;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 106.25%;
+  }
+}
+
 body {
   font-family: var(--font-lora);
   color: var(--color-text);
