@@ -56,8 +56,11 @@ export const ui = {
     'teaching.area3': 'Modélisation des données',
     'teaching.area4': 'SQL',
     'teaching.area5': 'Bases de données (MySQL, phpMyAdmin)',
+    'teaching.area6': 'Design graphique (Photoshop)',
     'teaching.approachHeading': 'Rôle',
     'teaching.text': "Animation de séances pratiques en algorithmique, programmation C et modélisation/SQL, évaluation des travaux pratiques et transmission des bonnes pratiques de code aux étudiants.",
+    'teaching.designHeading': 'Formation en design graphique',
+    'teaching.designText': 'Conception et animation de la formation <a href="https://nelsbrowser.mychariow.shop/maitriser-photoshop-en-2semaines" target="_blank">Maîtriser Photoshop en 2 semaines</a> : un programme 100 % pratique, de la découverte de l\'interface à la création d\'affiches, de flyers et de cartes d\'invitation, avec suivi personnalisé et certificat de fin de formation. <strong>Plus de 40 personnes formées</strong> à ce jour. Animation de la communauté <strong>Weekend Design Club</strong>, qui réunit plus de 90 membres autour du design graphique.',
 
     'journey.badge': 'Parcours',
     'journey.title': 'Parcours',
@@ -117,8 +120,11 @@ export const ui = {
     'teaching.area3': 'Data Modelling',
     'teaching.area4': 'SQL',
     'teaching.area5': 'Databases (MySQL, phpMyAdmin)',
+    'teaching.area6': 'Graphic Design (Photoshop)',
     'teaching.approachHeading': 'Role',
     'teaching.text': 'Hands-on sessions in algorithms, C programming and data modelling/SQL, assessment of lab work and teaching of good coding practices.',
+    'teaching.designHeading': 'Graphic Design Training',
+    'teaching.designText': 'Design and delivery of the <a href="https://nelsbrowser.mychariow.shop/maitriser-photoshop-en-2semaines" target="_blank">Master Photoshop in 2 Weeks</a> course (in French): a fully hands-on programme, from discovering the interface to creating posters, flyers and invitation cards, with personalised follow-up and a completion certificate. <strong>Over 40 people trained</strong> to date. Leader of the <strong>Weekend Design Club</strong> community, which brings together more than 90 members around graphic design.',
 
     'journey.badge': 'Journey',
     'journey.title': 'Journey',

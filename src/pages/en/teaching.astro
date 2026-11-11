@@ -8,7 +8,7 @@ import { useTranslations } from '../../i18n/utils';
 const lang = (Astro.currentLocale ?? 'fr') as 'fr' | 'en';
 const t = useTranslations(lang);
 
-const teachingAreas = [t('teaching.area1'), t('teaching.area2'), t('teaching.area3'), t('teaching.area4'), t('teaching.area5')];
+const teachingAreas = [t('teaching.area1'), t('teaching.area2'), t('teaching.area3'), t('teaching.area4'), t('teaching.area5'), t('teaching.area6')];
 ---
 
 <BaseLayout title="Teaching · Kossi Nelson GALLEY" description="Teaching role of Kossi Nelson GALLEY at ESGIS.">
@@ -28,6 +28,9 @@ const teachingAreas = [t('teaching.area1'), t('teaching.area2'), t('teaching.are
     <p class="teaching-text">
       {t('teaching.text')}
     </p>
+
+    <h2 class="teaching-subheading">{t('teaching.designHeading')}</h2>
+    <p class="teaching-text" set:html={t('teaching.designText')} />
   </section>
 
   <Footer />
