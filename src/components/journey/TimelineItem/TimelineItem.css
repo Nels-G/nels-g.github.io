@@ -39,6 +39,23 @@
   padding: 0.15rem 0.6rem;
   border-radius: 999px;
 }
+/* Une couleur par type de badge */
+.timeline-category--education {
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+}
+.timeline-category--experience {
+  color: #1E7F4F;
+  background: #E6F4EC;
+}
+.timeline-category--volunteer {
+  color: #B4570B;
+  background: #FDF0E3;
+}
+.timeline-category--milestone {
+  color: #7A3EB1;
+  background: #F3EBFA;
+}
 .timeline-period {
   font-family: var(--font-urbanist);
   font-size: 0.8rem;

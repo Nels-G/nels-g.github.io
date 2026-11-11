@@ -23,7 +23,7 @@ const categoryLabels = {
   <div class="timeline-marker"></div>
   <div class="timeline-content">
     <div class="timeline-meta">
-      <span class="timeline-category">{categoryLabels[entry.category]}</span>
+      <span class={`timeline-category timeline-category--${entry.category}`}>{categoryLabels[entry.category]}</span>
       <span class="timeline-period">{entry.period[lang]}</span>
     </div>
     <h3 class="timeline-title">
