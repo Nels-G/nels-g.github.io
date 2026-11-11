@@ -41,7 +41,7 @@ export const ui = {
 
     'projects.badge': 'Projets',
     'projects.title': 'Projets',
-    'projects.intro': 'Une sélection de projets personnels en vision par ordinateur, interaction homme-machine et développement logiciel. D\'autres travaux sont disponibles sur <a href="https://github.com/Nels-G" target="_blank">GitHub</a>.',
+    'projects.intro': 'Une sélection de projets personnels en vision par ordinateur, interaction homme-machine et développement logiciel. D\'autres travaux sont disponibles sur <a href="https://github.com/Nels-G" target="_blank">GitHub</a>. Les projets web réalisés pour des clients sont présentés sur le <a href="https://www.nelsongalley.online/fr/webdev" target="_blank">portfolio professionnel</a>.',
     'projects.moreOnGithub': 'Plus sur GitHub',
     'projects.category.AI': 'IA',
     'projects.category.HCI': 'IHM',
@@ -105,7 +105,7 @@ export const ui = {
 
     'projects.badge': 'Projects',
     'projects.title': 'Projects',
-    'projects.intro': 'A selection of personal projects in computer vision, human-computer interaction and software development. More work is available on <a href="https://github.com/Nels-G" target="_blank">GitHub</a>.',
+    'projects.intro': 'A selection of personal projects in computer vision, human-computer interaction and software development. More work is available on <a href="https://github.com/Nels-G" target="_blank">GitHub</a>. Web projects built for clients are showcased on the <a href="https://www.nelsongalley.online/en/webdev" target="_blank">professional portfolio</a>.',
     'projects.moreOnGithub': 'More on GitHub',
     'projects.category.AI': 'AI',
     'projects.category.HCI': 'HCI',
